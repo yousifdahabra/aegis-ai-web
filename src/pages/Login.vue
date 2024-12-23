@@ -1,5 +1,5 @@
 <template>
-    <div class="flex main-login">
+    <div class="flex flex-direction-row flex-wrap align-content-center justify-content-space-around align-items-center main-login">
         <div class="login-form">
             <input type="text" placeholder="email" name="" id="">
         </div>
