@@ -22,3 +22,5 @@ export default {
   color: #2c3e50;
 }
 </style>
+<style src="./assets/styles/common/flex.css"></style>
+<style src="./assets/styles/pages/login.css"></style>
