@@ -8,7 +8,8 @@
             </div>
             <div class="flex flex-direction-column ">
                 <form action="">
-
+                    <LabelInput label="Email" placeholder="Enter Your Email" type="email" v-model="email" />
+                    <LabelInput label="Password" placeholder="Enter Your Password" type="password" v-model="password" />
                 </form>
             </div>
         </div>
@@ -17,8 +18,7 @@
         </div>
     </div>
     
-
-    
+ 
                 
 
 </template>
@@ -30,8 +30,7 @@ export default {
     components: {
         LabelInput
     },
-
-    
+ 
 }
 </script>
 
