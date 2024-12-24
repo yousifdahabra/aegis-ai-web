@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-direction-column form-input">
-        <label for="Email">Email</label>
-        <input type="text" placeholder="Email" name="" id="">
+        <label :for="label" >{{ label }}</label>
+        <input :type="type" :placeholder="placeholder" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" >
     </div>
 </template>
 
