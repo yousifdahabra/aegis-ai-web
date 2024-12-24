@@ -2,9 +2,10 @@
     --main-title-color: #16354D;
     --sub-title-color: #1E1E1E;
     --label-color: #000000;
-    --button-background-color: #285981;
     --button-text-color: #FFFFFF;
     --link-text-color: #289DD2;
+    --input-background-color: #d7d8df;
+    --button-background-color: #285981;
 }
 @font-face {
     font-family: Syne-Main-Title;
@@ -51,7 +52,12 @@ button{
     padding: 10px 0;
     border-radius: 10px;
 }
-
+p{
+    font-family: 'IBM-Plex-Sans';
+    font-size: 15px;
+    line-height: 18px;
+    color: var(--sub-title-color);
+}
 a{
     font-family: 'IBM-Plex-Sans';
     font-size: 15px;
