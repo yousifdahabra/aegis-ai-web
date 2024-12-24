@@ -1,11 +1,23 @@
+:root {
+    --label-color: #000000;
+}
+
+@font-face {
+    font-family: IBM-Label;
+    src: url("../../fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf");
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
+}
+
+label{
+    font-family: 'IBM-Label';
+    font-size: 20px;
+    color: var(--label-color);
 }
