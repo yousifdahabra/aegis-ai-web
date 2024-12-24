@@ -30,7 +30,13 @@ export default {
     components: {
         LabelInput
     },
- 
+    data() {
+        return {
+            email: '',
+            password: '',
+        };
+    },
+
 }
 </script>
 
