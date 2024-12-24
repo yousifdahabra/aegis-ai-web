@@ -20,3 +20,12 @@
     padding: 10px;
     border-radius: 10px;
 }
+.form-check{
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.form-check input{
+    height: 17px;
+    width: 17px;
+}
