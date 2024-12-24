@@ -10,6 +10,10 @@
                 <form action="">
                     <LabelInput label="Email" placeholder="Enter Your Email" type="email" v-model="email" />
                     <LabelInput label="Password" placeholder="Enter Your Password" type="password" v-model="password" />
+                    <div class="flex flex-direction-row flex-wrap align-content-center justify-content-flex-start align-items-center form-check">
+                        <input type="checkbox" v-model="rememberMe" >
+                        <label for="Remember me" >Remember me</label>
+                    </div>
                 </form>
             </div>
         </div>
@@ -18,7 +22,7 @@
         </div>
     </div>
     
- 
+
                 
 
 </template>
@@ -34,6 +38,7 @@ export default {
         return {
             email: '',
             password: '',
+            rememberMe: '',
         };
     },
 
