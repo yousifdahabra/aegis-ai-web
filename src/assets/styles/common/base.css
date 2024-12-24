@@ -2,6 +2,8 @@
     --main-title-color: #16354D;
     --sub-title-color: #1E1E1E;
     --label-color: #000000;
+    --button-background-color: #285981;
+    --button-text-color: #FFFFFF;
 }
 @font-face {
     font-family: Syne-Main-Title;
@@ -37,4 +39,14 @@ label{
     font-family: 'IBM-Plex-Sans';
     font-size: 20px;
     color: var(--label-color);
+}
+
+button{
+    font-family: 'IBM-Plex-Sans';
+    font-size: 16px;
+    line-height: 20px;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    padding: 10px 0;
+    border-radius: 10px;
 }
