@@ -3,11 +3,13 @@
         <div class="login-form">
             <div class="flex flex-direction-column form-header">
                 <h1 class="main-title">Welcome Back!</h1>
-                <p>Enter your credentials to log in to your account</p>
+                <p class="sub-title">Enter your credentials to log in to your account</p>
             </div>
-            <div class="flex flex-direction-column form-input">
-                <label for="Email">Email</label>
-                <input type="text" placeholder="Email" name="" id="">
+            <div class="flex flex-direction-column ">
+                <div class="flex flex-direction-column form-input">
+                    <label for="Email">Email</label>
+                    <input type="text" placeholder="Email" name="" id="">
+                </div>
             </div>
         </div>
         <div class="login-image">
