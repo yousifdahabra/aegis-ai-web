@@ -2,12 +2,12 @@
     <div class="flex flex-direction-row flex-wrap align-content-center justify-content-space-around align-items-center main-login">
         <div class="login-form">
             <div class="flex flex-direction-column form-header">
-                <h1>Welcome Back!</h1>
+                <h1 class="main-title">Welcome Back!</h1>
                 <p>Enter your credentials to log in to your account</p>
             </div>
             <div class="flex flex-direction-column form-input">
-                <label for="">Email</label>
-                <input type="text" placeholder="email" name="" id="">
+                <label for="Email">Email</label>
+                <input type="text" placeholder="Email" name="" id="">
             </div>
         </div>
         <div class="login-image">
