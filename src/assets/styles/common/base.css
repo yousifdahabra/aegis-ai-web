@@ -65,3 +65,21 @@ a{
     color: var(--link-text-color);
     text-decoration: none;
 }
+.form-input{
+    margin-top: 20px ;
+}
+.form-input input{
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--input-background-color);;
+}
+.form-check{
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.form-check input{
+    height: 17px;
+    width: 17px;
+}
