@@ -1,5 +1,10 @@
 :root {
+    --main-title-color: #16354D;
     --label-color: #000000;
+}
+@font-face {
+    font-family: Syne-Main-Title;
+    src: url("../../fonts/Syne/Syne-Medium.ttf");
 }
 
 @font-face {
@@ -12,8 +17,13 @@
     padding: 0;
 }
 
-#app {
-    color: #2c3e50;
+
+
+.main-title{
+    font-family: 'Syne-Main-Title';
+    font-size: 48px;
+    line-height: 116.7%;
+    color: var(--main-title-color);
 }
 
 label{
