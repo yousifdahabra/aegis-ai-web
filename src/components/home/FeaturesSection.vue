@@ -103,6 +103,15 @@ export default {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+.feature.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.feature.reverse {
+  flex-direction: row-reverse;
+}
 
 .feature-image-container {
   flex: 1;
