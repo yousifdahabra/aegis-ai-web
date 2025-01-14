@@ -36,3 +36,35 @@
       </div>
     </footer>
 </template>
+<script>
+export default {
+  name: "CustomFooter",
+};
+</script>
+<style>
+/* Footer Styles */
+.footer {
+  background-color: #163354;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 calc(33.333% - 20px);
+}
+
+.footer-logo {
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+
+</style>
