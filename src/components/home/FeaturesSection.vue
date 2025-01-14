@@ -6,9 +6,15 @@
       <div
         v-for="(feature, index) in features"
         :key="index"
+        class="feature"
+        :class="{ reverse: index % 2 !== 0, 'is-active': index === activeFeatureIndex }"
       >
         <div class="feature-image-container">
           <img :src="feature.image" :alt="feature.alt" class="feature-image" />
+        </div>
+        <div class="feature-text">
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
         </div>
       </div>
     </div>
