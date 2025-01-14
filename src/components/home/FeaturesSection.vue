@@ -3,9 +3,24 @@
     <!-- Features Section -->
     <section class="features">
   <div class="container">
-    <h2 class="section-title animate-slide-in">Why Choose Our App?</h2>
+    <h2 class="section-title ">Why Choose Our App?</h2>
+    <div class="feature reverse ">
+      <div class="feature-image-container">
+        <img
+          src="@/assets/images/home/voice.webp"
+          alt="Dynamic Questioning"
+          class="feature-image"
+        />
+      </div>
+      <div class="feature-text">
+        <h3> AI Voice Interactions</h3>
+        <p>
+          AI will prompt you to respond to some questions using your voice to facilitate interaction with the user.</p>
+        <!-- <div><button class="btn-download">More Details</button></div> -->
+      </div>
+    </div>
 
-    <div class="feature animate-slide-in">
+    <div class="feature ">
       <div class="feature-image-container">
         <img
           src="@/assets/images/home/Analysis.webp"
@@ -19,11 +34,11 @@
           Get real-time feedback with our AI-driven assessments tailored to
           improve your digital safety.
         </p>
-        <div><button class="btn-download">More Details</button></div>
+        <!-- <div><button class="btn-download">More Details</button></div> -->
 
       </div>
     </div>
-    <div class="feature reverse animate-slide-in">
+    <div class="feature reverse ">
       <div class="feature-image-container">
         <img
           src="@/assets/images/home/qustion.webp"
@@ -32,12 +47,12 @@
         />
       </div>
       <div class="feature-text">
-        <h3>Adaptive Questioning</h3>
+        <h3>Dynamic Questions</h3>
         <p>
           Our app evolves with your responses to create personalized learning
-          experiences.
+          experiences with diffrent types of questions.
         </p>
-        <div><button class="btn-download">More Details</button></div>
+        <!-- <div><button class="btn-download">More Details</button></div> -->
       </div>
     </div>
 
