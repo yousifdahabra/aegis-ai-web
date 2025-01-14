@@ -131,4 +131,51 @@ export default {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.timeline-content.request {
+  margin-left: 55%;
+}
+
+.timeline-content.response {
+  margin-right: 55%;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #289dd2;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.icon {
+  font-size: 2rem;
+  color: #289dd2;
+  margin-bottom: 10px;
+}
+
+.timeline-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .timeline-content {
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  .timeline-content.request,
+  .timeline-content.response {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+}
 </style>
