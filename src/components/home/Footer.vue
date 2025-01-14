@@ -3,11 +3,10 @@
       <footer class="footer">
       <div class="container footer-container animate-fade-in">
         <div class="footer-section">
-          <img src="https://placehold.co/150x50" alt="Logo" class="footer-logo" />
-          <p>
-            Protect your digital presence with our AI-powered app. Stay safe,
-            stay secure.
-          </p>
+          <img src="@/assets/images/home/logo-text.png" alt="Logo" class="footer-logo" />
+          <h6>
+            Aegis AI empowers users to take control of their online safety with personalized, interactive tests that adapt to their responses. Featuring real-time voice interactions.
+          </h6>
         </div>
 
         <div class="footer-section">
@@ -23,16 +22,15 @@
         <div class="footer-section">
           <h3>Follow Us</h3>
           <div class="social-links">
-            <a href="#"><img src="https://placehold.co/30x30" alt="Facebook" /></a>
-            <a href="#"><img src="https://placehold.co/30x30" alt="Twitter" /></a>
-            <a href="#"><img src="https://placehold.co/30x30" alt="LinkedIn" /></a>
-            <a href="#"><img src="https://placehold.co/30x30" alt="Instagram" /></a>
+            <a href="#"><CIcon icon="cibFacebook" size="lg" /></a>
+            <a href="#"><CIcon icon="cibLinkedin" size="lg" /></a>
+            <a href="#"> <CIcon icon="cibInstagram" size="lg" /></a>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2025 AegisAI. All rights reserved.</p>
+        <h6>© 2025 AegisAI. All rights reserved.</h6>
       </div>
     </footer>
 </template>
@@ -62,7 +60,7 @@ export default {
 }
 
 .footer-logo {
-  height: 50px;
+  height: 100px;
   margin-bottom: 15px;
 }
 
