@@ -31,5 +31,8 @@
         </div>
       </div>
 
+      <div class="footer-bottom">
+        <p>© 2025 AegisAI. All rights reserved.</p>
+      </div>
     </footer>
 </template>
