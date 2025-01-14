@@ -66,5 +66,35 @@ export default {
   margin-bottom: 15px;
 }
 
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #285bd3;
+  padding-top: 10px;
+}
 
 </style>
