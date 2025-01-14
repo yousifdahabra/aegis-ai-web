@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { ref, onMounted, onUnmounted } from "vue";
 import voiceImage from "@/assets/images/home/voice.webp";
 import analysisImage from "@/assets/images/home/Analysis.webp";
 import questionImage from "@/assets/images/home/qustion.webp";
@@ -51,7 +52,17 @@ export default {
   },
 ];
 
+    const activeFeatureIndex = ref(0);
 
+    const handleScroll = () => {
+      const featuresSection = document.querySelector(".features");
+      const { top, height } = featuresSection.getBoundingClientRect();
+      const scrollPosition = window.scrollY - (featuresSection.offsetTop - window.innerHeight / 2);
+
+      const featureHeight = height / features.length;
+
+
+     };
 
     return {
       features,
