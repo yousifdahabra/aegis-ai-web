@@ -98,4 +98,21 @@ export default {
   text-decoration: underline;
 }
 
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.burger-menu .line {
+  width: 25px;
+  height: 3px;
+  background-color: #163354;
+  border-radius: 2px;
+}
+
+
+
 </style>
