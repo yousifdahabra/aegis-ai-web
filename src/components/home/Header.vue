@@ -113,6 +113,29 @@ export default {
   border-radius: 2px;
 }
 
+.btn-expert {
+  background-color:var(--button-background-color);
+  color: var(--button-text-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.btn-expert-mobile {
+  display: none;
+  background-color:var(--button-background-color);
+  color: var(--button-text-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
 
 
 </style>
