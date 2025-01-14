@@ -1,0 +1,85 @@
+:root {
+    --main-title-color: #16354D;
+    --sub-title-color: #1E1E1E;
+    --label-color: #000000;
+    --button-text-color: #FFFFFF;
+    --link-text-color: #289DD2;
+    --input-background-color: #d7d8df;
+    --button-background-color: #285981;
+}
+@font-face {
+    font-family: Syne-Main-Title;
+    src: url("../../fonts/Syne/Syne-Medium.ttf");
+}
+
+@font-face {
+    font-family: IBM-Plex-Sans;
+    src: url("../../fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.main-title{
+    font-family: 'Syne-Main-Title';
+    font-size: 48px;
+    line-height: 116.7%;
+    color: var(--main-title-color);
+}
+.sub-title{
+    font-family: 'IBM-Plex-Sans';
+    font-size: 16px;
+    color: var(--sub-title-color);
+    line-height: 20px;
+}
+
+label{
+    font-family: 'IBM-Plex-Sans';
+    font-size: 20px;
+    color: var(--label-color);
+}
+
+button{
+    font-family: 'IBM-Plex-Sans';
+    font-size: 16px;
+    line-height: 20px;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    padding: 10px 0;
+    border-radius: 10px;
+}
+p{
+    font-family: 'IBM-Plex-Sans';
+    font-size: 15px;
+    line-height: 18px;
+    color: var(--sub-title-color);
+}
+a{
+    font-family: 'IBM-Plex-Sans';
+    font-size: 15px;
+    line-height: 18px;
+    color: var(--link-text-color);
+    text-decoration: none;
+}
+.form-input{
+    margin-top: 20px ;
+}
+.form-input input{
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--input-background-color);;
+}
+.form-check{
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.form-check input{
+    height: 17px;
+    width: 17px;
+}
