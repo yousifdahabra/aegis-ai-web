@@ -2,6 +2,8 @@
   <div class="home-page">
     <CustomHeader />
     <HeroSection />
+    <FeaturesSection />
+
     <CustomFooter />
   </div>
 </template>
@@ -10,6 +12,7 @@
 import CustomHeader from "@/components/home/Header.vue";
 import HeroSection from "@/components/home/HeroSection.vue";
 import CustomFooter from "@/components/home/Footer.vue";
+import FeaturesSection from "@/components/home/FeaturesSection.vue";
 
 export default {
   name: "Home",
@@ -17,6 +20,7 @@ export default {
     CustomHeader,
     HeroSection,
     CustomFooter,
+    FeaturesSection,
   },
 
   data() {
