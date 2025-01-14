@@ -24,4 +24,27 @@ export default {
 </script>
 
 <style >
+/* Button Styles */
+.btn-download,
+.btn-send {
+  background-color: var(--button-background-color);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-download:hover,
+.btn-send:hover {
+  background-color: var(--hover-button-background-color);
+  transform: scale(1.05);
+}
+
 </style>
