@@ -2,18 +2,21 @@
   <div class="home-page">
     <CustomHeader />
     <HeroSection />
+    <CustomFooter />
   </div>
 </template>
 
 <script>
 import CustomHeader from "@/components/home/Header.vue";
 import HeroSection from "@/components/home/HeroSection.vue";
+import CustomFooter from "@/components/home/Footer.vue";
 
 export default {
   name: "Home",
   components: {
     CustomHeader,
     HeroSection,
+    CustomFooter,
   },
 
   data() {
