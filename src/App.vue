@@ -40,3 +40,6 @@ onBeforeMount(() => {
 // We use those styles to show code examples, you should remove them in your application.
 @import 'styles/examples';
 </style>
+
+<style src="./styles/common/flex.css"></style>
+<style src="./styles/common/base.css"></style>
