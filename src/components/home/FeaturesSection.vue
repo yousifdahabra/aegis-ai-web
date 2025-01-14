@@ -84,52 +84,51 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 /* Features */
 .features {
-padding: 60px 20px;
-background: #f9f9f9;
+  padding: 60px 20px;
+  background: #f9f9f9;
 }
 
 .feature {
-display: flex;
-align-items: center;
-gap: 20px;
-margin-bottom: 40px;
-flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.feature.reverse {
-flex-direction: row-reverse;
-}
 
 .feature-image-container {
-flex: 1;
-display: flex;
-justify-content: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .feature-image {
-max-width: 100%;
-border-radius: 8px;
+  max-width: 100%;
+  border-radius: 8px;
 }
 
 .feature-text {
-flex: 1;
-display: flex;
-flex-direction: column;
-justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
-.feature {
-  flex-direction: column;
-}
+  .feature {
+    flex-direction: column;
+  }
 
-.feature.reverse {
-  flex-direction: column;
+  .feature.reverse {
+    flex-direction: column;
+  }
 }
-}
-
-
 </style>
