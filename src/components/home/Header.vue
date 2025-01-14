@@ -65,5 +65,37 @@ export default {
   gap: 20px;
 }
 
+.nav-links.show-menu {
+  display: block;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  border-radius: 5px;
+  z-index: 10;
+
+  text-align: center;
+}
+.nav-links.show-menu .nav-item {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.nav-links.show-menu .nav-item:last-child {
+  margin-bottom: 0;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #163354;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
+}
 
 </style>
