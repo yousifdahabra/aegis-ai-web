@@ -23,8 +23,41 @@
 </template>
 
 <script>
+import voiceImage from "@/assets/images/home/voice.webp";
+import analysisImage from "@/assets/images/home/Analysis.webp";
+import questionImage from "@/assets/images/home/qustion.webp";
+
 export default {
-name: "FeaturesSection",
+  name: "FeaturesSection",
+  setup() {
+    const features = [
+  {
+    image: voiceImage,
+    alt: "AI Voice Interactions",
+    title: "AI Voice Interactions",
+    description: "AI will prompt you to respond to some questions using your voice to facilitate interaction with the user.",
+  },
+  {
+    image: analysisImage,
+    alt: "AI-Powered Analysis",
+    title: "AI-Powered Analysis",
+    description: "Get real-time feedback with our AI-driven assessments tailored to improve your digital safety.",
+  },
+  {
+    image: questionImage,
+    alt: "Dynamic Questioning",
+    title: "Dynamic Questions",
+    description: "Our app evolves with your responses to create personalized learning experiences with different types of questions.",
+  },
+];
+
+
+
+    return {
+      features,
+      activeFeatureIndex,
+    };
+  },
 };
 </script>
 <style>
