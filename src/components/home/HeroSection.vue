@@ -3,10 +3,10 @@
     <section class="hero">
       <div class="container text-center">
         <h1 class="hero-title animate-fade-in">Discover the Future of Security Test</h1>
-        <p class="hero-subtitle animate-fade-in">
+        <h4 class="hero-subtitle animate-fade-in">
           Our AI-powered app test using dynamic Questions suit to your personality. Download
           now and experience cutting-edge security evaluations.
-        </p>
+        </h4>
         <button class="btn-download">
           <img src="@/assets/images/home/google-play.png" alt="Google Play" class="icon" />
           Download on Google Play
@@ -24,7 +24,7 @@ export default {
 /* Hero Section */
 .hero {
   padding: 60px 20px;
-  background: url('https://placehold.co/1920x1080') no-repeat center center;
+  background: url('@/assets/images/home/hero.jpg') no-repeat center center;
   background-size: cover;
   color: #fff;
   text-align: center;
