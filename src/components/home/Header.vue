@@ -8,10 +8,10 @@
           <a href="#" class="nav-item">Home</a>
           <a href="#" class="nav-item">About Us</a>
           <a href="#" class="nav-item">Contact Us</a>
-          <a href="#" class="nav-item btn-expert-mobile">Be an Expert</a>
+          <!-- <a href="#" class="nav-item btn-expert-mobile">Be an Expert</a> -->
         </nav>
       </div>
-      <a href="#" class="btn-expert">Be an Expert</a>
+      <!-- <a href="#" class="btn-expert">Be an Expert</a> -->
 
       <button class="burger-menu" @click="toggleMenu">
         <span class="line"></span>

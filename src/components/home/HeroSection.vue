@@ -3,10 +3,10 @@
     <section class="hero">
       <div class="container text-center">
         <h1 class="hero-title animate-fade-in">Discover the Future of Security Test</h1>
-        <h4 class="hero-subtitle animate-fade-in">
+        <p class="hero-subtitle animate-fade-in">
           Our AI-powered app test using dynamic Questions suit to your personality. Download
           now and experience cutting-edge security evaluations.
-        </h4>
+        </p>
         <button class="btn-download">
           <img src="@/assets/images/home/google-play.png" alt="Google Play" class="icon" />
           Download on Google Play
@@ -31,6 +31,7 @@ export default {
 }
 
 .hero-title {
+  color: var(--main-title-color);
   font-size: 3rem;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);

@@ -1,7 +1,70 @@
 <template>
-  <section class="timeline-section">
+
+<section class="timeline-section">
     <div class="container">
-      <h2 class="section-title">How the Test Works</h2>
+      <h2 class="section-title">How the Static Test Works</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content request">
+            <i class="fa fa-list-alt icon"></i>
+            <p class="timeline-text">
+              <strong>User:</strong> Start the test.
+            </p>
+          </div>
+        </div>
+                <div class="timeline-item">
+          <div class="timeline-content response">
+            <i class="fa fa-user-edit icon"></i>
+            <p class="timeline-text">
+              <strong>Receive</strong> user receive test with all question.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content request">
+            <i class="fa fa-user-edit icon"></i>
+            <p class="timeline-text">
+              <strong>Receive</strong> Answer the first question.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="timeline-item">
+          <div class="timeline-content request">
+            <i class="fa fa-arrow-right icon"></i>
+            <p class="timeline-text">
+              <strong>Step 3:</strong> Proceed to the next question in a fixed order.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content request">
+            <i class="fa fa-user-edit icon"></i>
+            <p class="timeline-text">
+              <strong>Step 4:</strong> Continue answering questions as they appear.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content request">
+            <i class="fa fa-chart-line icon"></i>
+            <p class="timeline-text">
+              <strong>Step 5:</strong> Complete the test and receive results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+
+    <div class="container">
+      <h2 class="section-title">How the dynamic Test Works</h2>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-content response">
@@ -70,6 +133,8 @@
       </div>
     </div>
   </section>
+
+
 </template>
 
 
