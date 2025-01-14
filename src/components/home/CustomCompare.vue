@@ -3,6 +3,24 @@
     <div class="container">
       <h2 class="section-title">How the Test Works</h2>
       <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content response">
+            <i class="fa fa-user-edit icon"></i>
+            <p class="timeline-text">
+              <strong>User Start:</strong> Start Test.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content request">
+            <i class="fa fa-comment-dots icon"></i>
+            <p class="timeline-text">
+              <strong>AI Ask:</strong> First question tailored to start your personalized journey.
+            </p>
+          </div>
+        </div>
+
 
 
 
@@ -19,4 +37,4 @@ export default {
 };
 </script>
 <style scoped>
- </style>
+</style>
