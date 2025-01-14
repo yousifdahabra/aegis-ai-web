@@ -40,4 +40,30 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.navbar {
+  background-color: #fff;
+  padding: 15px 30px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-nav-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+
+</style>
