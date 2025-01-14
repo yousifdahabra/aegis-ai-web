@@ -21,6 +21,24 @@
           </div>
         </div>
 
+        <div class="timeline-item">
+          <div class="timeline-content response">
+            <i class="fa fa-user-edit icon"></i>
+            <p class="timeline-text">
+              <strong>User Answer:</strong> You answer the question.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content request">
+            <i class="fa fa-sync-alt icon"></i>
+            <p class="timeline-text">
+              <strong>AI Ask:</strong> Next question based on your previous answer.
+            </p>
+          </div>
+        </div>
+
 
 
 
