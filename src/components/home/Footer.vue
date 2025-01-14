@@ -20,7 +20,15 @@
           </ul>
         </div>
 
-
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><img src="https://placehold.co/30x30" alt="Facebook" /></a>
+            <a href="#"><img src="https://placehold.co/30x30" alt="Twitter" /></a>
+            <a href="#"><img src="https://placehold.co/30x30" alt="LinkedIn" /></a>
+            <a href="#"><img src="https://placehold.co/30x30" alt="Instagram" /></a>
+          </div>
+        </div>
       </div>
 
     </footer>
