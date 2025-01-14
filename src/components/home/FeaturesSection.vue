@@ -92,6 +92,12 @@ export default {
   position: relative;
   overflow: hidden;
 }
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #16354d;
+}
 
 .parallax-bg {
   position: absolute;
