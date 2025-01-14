@@ -1,19 +1,42 @@
+<script setup>
+import { onBeforeMount } from 'vue'
+import { useColorModes } from '@coreui/vue'
 
-<template>
-  <Login />
-</template>
+import { useThemeStore } from '@/stores/theme.js'
 
-<script>
-import Login from './pages/Login';
+const { isColorModeSet, setColorMode } = useColorModes(
+  'coreui-free-vue-admin-template-theme',
+)
+const currentTheme = useThemeStore()
 
-export default {
-  name: 'App',
-  components: {
-    Login
+onBeforeMount(() => {
+  const urlParams = new URLSearchParams(window.location.href.split('?')[1])
+  let theme = urlParams.get('theme')
+
+  if (theme !== null && theme.match(/^[A-Za-z0-9\s]+/)) {
+    theme = theme.match(/^[A-Za-z0-9\s]+/)[0]
   }
-}
+
+  if (theme) {
+    setColorMode(theme)
+    return
+  }
+
+  if (isColorModeSet()) {
+    return
+  }
+
+  setColorMode(currentTheme.theme)
+})
 </script>
 
-<style src="./assets/styles/common/flex.css"></style>
-<style src="./assets/styles/common/base.css"></style>
-<style src="./assets/styles/pages/login.css"></style>
+<template>
+  <router-view />
+</template>
+
+<style lang="scss">
+// Import Main styles for this application
+@import 'styles/style';
+// We use those styles to show code examples, you should remove them in your application.
+@import 'styles/examples';
+</style>
