@@ -4,13 +4,13 @@
       <div class="container footer-container animate-fade-in">
         <div class="footer-section">
           <img src="@/assets/images/home/logo-text.png" alt="Logo" class="footer-logo" />
-          <h6>
+          <p>
             Aegis AI empowers users to take control of their online safety with personalized, interactive tests that adapt to their responses. Featuring real-time voice interactions.
-          </h6>
+          </p>
         </div>
 
         <div class="footer-section">
-          <h3>Quick Links</h3>
+          <p>Quick Links</p>
           <ul class="footer-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">About Us</a></li>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="footer-section">
-          <h3>Follow Us</h3>
+          <p>Follow Us</p>
           <div class="social-links">
             <a href="#"><CIcon icon="cibFacebook" size="lg" /></a>
             <a href="#"><CIcon icon="cibLinkedin" size="lg" /></a>
@@ -30,7 +30,7 @@
       </div>
 
       <div class="footer-bottom">
-        <h6>© 2025 AegisAI. All rights reserved.</h6>
+        <p>© 2025 AegisAI. All rights reserved.</p>
       </div>
     </footer>
 </template>
@@ -42,7 +42,7 @@ export default {
 <style>
 /* Footer Styles */
 .footer {
-  background-color: #163354;
+  background-color: #fff;
   color: #fff;
   padding: 40px 20px;
   text-align: left;
@@ -74,7 +74,6 @@ export default {
 }
 
 .footer-links a {
-  color: #fff;
   text-decoration: none;
 }
 

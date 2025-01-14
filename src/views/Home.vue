@@ -3,7 +3,7 @@
     <CustomHeader />
     <HeroSection />
     <FeaturesSection />
-
+    <CustomCompare />
     <CustomFooter />
   </div>
 </template>
@@ -13,6 +13,7 @@ import CustomHeader from "@/components/home/Header.vue";
 import HeroSection from "@/components/home/HeroSection.vue";
 import CustomFooter from "@/components/home/Footer.vue";
 import FeaturesSection from "@/components/home/FeaturesSection.vue";
+import CustomCompare from "@/components/home/CustomCompare.vue";
 
 export default {
   name: "Home",
@@ -21,6 +22,7 @@ export default {
     HeroSection,
     CustomFooter,
     FeaturesSection,
+    CustomCompare,
   },
 
   data() {

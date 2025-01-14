@@ -24,7 +24,7 @@ export default {
 /* Hero Section */
 .hero {
   padding: 60px 20px;
-  background: url('@/assets/images/home/hero.jpg') no-repeat center center;
+  background: linear-gradient(135deg, #f0f9ff, #cce7ff);
   background-size: cover;
   color: #fff;
   text-align: center;
