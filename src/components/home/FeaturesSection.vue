@@ -61,8 +61,21 @@ export default {
 
       const featureHeight = height / features.length;
 
+      const index = Math.min(
+        Math.max(Math.floor(scrollPosition / featureHeight), 0),
+        features.length - 1
+      );
 
-     };
+      activeFeatureIndex.value = index;
+    };
+
+    onMounted(() => {
+      window.addEventListener("scroll", handleScroll);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener("scroll", handleScroll);
+    });
 
     return {
       features,
