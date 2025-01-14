@@ -153,7 +153,7 @@ export default {
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 40px;
   color: #16354d;
 }
@@ -228,6 +228,10 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .timeline {
+    padding: 10px 0;
+  }
+
   .timeline-content {
     width: 80%;
     margin: 10px auto;
@@ -240,7 +244,32 @@ export default {
   }
 
   .timeline::before {
-    left: 20px;
+    left: 10px;
+  }
+
+  .timeline-item::after {
+    left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .timeline-content {
+    padding: 15px;
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+
+  .timeline-text {
+    font-size: 0.9rem;
   }
 }
 </style>
