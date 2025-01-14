@@ -80,4 +80,17 @@ export default {
 };
 </script>
 <style scoped>
+/* Timeline Section */
+.timeline-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f4f9fc, #e6f7ff);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #16354d;
+}
+
 </style>
