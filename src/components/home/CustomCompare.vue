@@ -39,7 +39,32 @@
           </div>
         </div>
 
+        <div class="timeline-item">
+          <div class="timeline-content response">
+            <i class="fa fa-user-edit icon"></i>
+            <p class="timeline-text">
+              <strong>User Answer:</strong> You answer the next question.
+            </p>
+          </div>
+        </div>
 
+        <div class="timeline-item">
+          <div class="timeline-content request">
+            <i class="fa fa-chart-line icon"></i>
+            <p class="timeline-text">
+              <strong>AI Result:</strong> Test completed. Receive detailed analysis and feedback.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content response">
+            <i class="fa fa-user-edit icon"></i>
+            <p class="timeline-text">
+              <strong>User:</strong> You will receive answers.
+            </p>
+          </div>
+        </div>
 
 
       </div>
