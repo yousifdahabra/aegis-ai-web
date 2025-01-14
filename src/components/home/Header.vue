@@ -3,7 +3,7 @@
   <header class="navbar">
     <div class="container navbar-container">
       <div class="logo-nav-container">
-        <img src="https://placehold.co/150x50" alt="Logo" class="logo" />
+        <img src="@/assets/images/home/logo.png"  alt="Logo" class="logo" />
         <nav class="nav-links" :class="{ 'show-menu': isMenuOpen }">
           <a href="#" class="nav-item">Home</a>
           <a href="#" class="nav-item">About Us</a>
@@ -90,7 +90,7 @@ export default {
 
 .nav-item {
   text-decoration: none;
-  color: #163354;
+  color: var(--main-title-color);
   font-weight: 500;
 }
 
@@ -109,7 +109,7 @@ export default {
 .burger-menu .line {
   width: 25px;
   height: 3px;
-  background-color: #163354;
+  background-color: var(--main-title-color);;
   border-radius: 2px;
 }
 
@@ -136,6 +136,41 @@ export default {
   margin-top: 15px;
 }
 
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.show-menu {
+    display: block;
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .btn-expert {
+    display: none;
+  }
+
+  .btn-expert-mobile {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .burger-menu {
+    display: none;
+  }
+
+  .btn-expert-mobile {
+    display: none;
+  }
+
+  .btn-expert {
+    display: inline-block;
+  }
+}
 
 
 </style>
