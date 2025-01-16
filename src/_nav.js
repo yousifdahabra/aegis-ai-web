@@ -39,7 +39,30 @@ export default [
       },
     ],
   },
-
+  {
+    component: 'CNavGroup',
+    name: 'Become an Expert',
+    to: '/requests/become-expert',
+    icon: 'cil-star',
+    role: 'admin',
+    items: [
+      {
+        component: 'CNavItem',
+        name: 'Approve Applications',
+        to: '/requests/become-expert/approve',
+      },
+      {
+        component: 'CNavItem',
+        name: 'Decline Applications',
+        to: '/requests/become-expert/decline',
+      },
+      {
+        component: 'CNavItem',
+        name: 'View Applications',
+        to: '/requests/become-expert/view',
+      },
+    ],
+  },
 
 
 ];
