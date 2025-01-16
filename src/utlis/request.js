@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = "https://yousif.info/api/";
-
+axios.defaults.baseURL = "http://127.0.0.1:8000/api/";
 export const requestAPI = async ({ route, method = 'GET', body, header = 'application/x-www-form-urlencoded' }) => {
+  const role = localStorage.role??'';
+
   try {
     const response = await axios.request({
-      url: `${route}`,
+      url: role+`/${route}`,
       method,
       data: body,
       headers: {
