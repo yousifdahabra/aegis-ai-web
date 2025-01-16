@@ -1,24 +1,21 @@
-import axios from 'axios'
+import axios from 'axios';
 
-axios.defaults.baseURL = "http://localhost/learning/back/";
+axios.defaults.baseURL = "https://yousif.info/api/";
 
-export const requestAPI =  async({route,method = 'GET' ,body,header='application/x-www-form-urlencoded'}) =>{
-    try{
-        const respons = await axios.request({
-            url:`${route}.php`,
-            method,
-            data:body,
-            headers:{
-                'Content-Type': header,
-                // "Content-Type":"application/json",  application/x-www-form-urlencoded
-                Authorization:localStorage.token,
-            }
-        });
-        return respons.data;
+export const requestAPI = async ({ route, method = 'GET', body, header = 'application/x-www-form-urlencoded' }) => {
+  try {
+    const response = await axios.request({
+      url: `${route}`,
+      method,
+      data: body,
+      headers: {
+        'Content-Type': header,
+        Authorization: localStorage.token,
+      },
+    });
 
-    }catch (error){
-        return error;
-    }
-
-
-}
+    return response.data;
+  } catch (error) {
+    return error.response;
+  }
+};
