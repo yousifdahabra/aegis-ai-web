@@ -9,7 +9,6 @@
           <CTableHeaderCell>Name</CTableHeaderCell>
           <CTableHeaderCell>Email</CTableHeaderCell>
           <CTableHeaderCell>Role</CTableHeaderCell>
-          <CTableHeaderCell>Birth Year</CTableHeaderCell>
           <CTableHeaderCell>Actions</CTableHeaderCell>
         </CTableRow>
       </CTableHead>
@@ -18,7 +17,6 @@
           <CTableDataCell>{{ user.name }}</CTableDataCell>
           <CTableDataCell>{{ user.email }}</CTableDataCell>
           <CTableDataCell>{{ user.user_role_id }}</CTableDataCell>
-          <CTableDataCell>{{ user.birth_year }}</CTableDataCell>
           <CTableDataCell>
             <CButton color="info" size="sm" @click="openEditModal(user)">Edit</CButton>
             <CButton color="danger" size="sm" class="ms-2" @click="blockUser(user.id)">
@@ -55,11 +53,14 @@
             class="mb-3"
             required
           />
+
           <CFormInput
-            v-model="editedUser.birth_year"
-            label="birth year"
-            placeholder="Enter birth year"
+            v-model="editedUser.password"
+            label="Password"
+            type="password"
+            placeholder="Enter user password"
             class="mb-3"
+
           />
           <CButton color="primary" type="submit">Save Changes</CButton>
         </CForm>
@@ -81,14 +82,14 @@ export default {
       id: null,
       name: '',
       email: '',
-      birth_year: '',
+      password: '',
     });
 
     const openEditModal = (user) => {
       editedUser.id = user.id;
       editedUser.name = user.name;
       editedUser.email = user.email;
-      editedUser.birth_year = user.birth_year;
+      editedUser.password = user.password;
       editModalVisible.value = true;
     };
 
@@ -97,8 +98,18 @@ export default {
     };
 
     const saveUserChanges = async () => {
-      console.log(`Saving changes for user ID: ${editedUser.id}`);
-      closeEditModal();
+      const result = await usersStore.editUser(editedUser.id, {
+        name: editedUser.name,
+        email: editedUser.email,
+        password: editedUser.password,
+      });
+
+      if (result.success) {
+        alert('User updated successfully!');
+        closeEditModal();
+      } else {
+        alert(result.message);
+      }
     };
 
     const blockUser = async (id) => {

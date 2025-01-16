@@ -46,8 +46,8 @@ export const useUsersStore = defineStore('users', {
     async editUser(userId, updatedData) {
       try {
         const response = await requestAPI({
-          route: `users/edit/${userId}`,
-          method: 'POST',
+          route: `users/${userId}`,
+          method: 'PUT',
           body: updatedData,
           header: 'application/json',
         });
