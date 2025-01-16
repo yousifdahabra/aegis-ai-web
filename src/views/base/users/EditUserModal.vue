@@ -34,7 +34,8 @@
 </template>
 
 <script>
-import { ref, watch, reactive } from 'vue';
+import { reactive, ref, watch } from 'vue';
+import { useUsersStore } from '@/stores/users';
 
 export default {
   props: {
@@ -47,10 +48,9 @@ export default {
       required: true,
     },
   },
-  emits: ['update', 'close'],
+  emits: ['close', 'refresh'],
   setup(props, { emit }) {
-    const formSuccessMessage = ref(null);
-    const formErrorMessage = ref(null);
+    const usersStore = useUsersStore();
 
     const localUser = reactive({
       id: null,
@@ -58,6 +58,9 @@ export default {
       email: '',
       password: '',
     });
+
+    const formSuccessMessage = ref(null);
+    const formErrorMessage = ref(null);
 
     watch(
       () => props.user,
@@ -71,21 +74,23 @@ export default {
     );
 
     const saveChanges = async () => {
-
-      const result = await Promise.resolve({
-        success: true,
+      const result = await usersStore.editUser(localUser.id, {
+        name: localUser.name,
+        email: localUser.email,
+        password: localUser.password?? '',
       });
 
       if (result.success) {
         formSuccessMessage.value = 'User updated successfully!';
         formErrorMessage.value = null;
 
+        emit('refresh');
+
         setTimeout(() => {
-          emit('update', { ...localUser });
           emit('close');
         }, 1500);
       } else {
-        formErrorMessage.value = 'Failed to update user.';
+        formErrorMessage.value = result.message || 'Failed to update user.';
         formSuccessMessage.value = null;
       }
     };
@@ -96,10 +101,10 @@ export default {
 
     return {
       localUser,
-      saveChanges,
-      close,
       formSuccessMessage,
       formErrorMessage,
+      saveChanges,
+      close,
     };
   },
 };

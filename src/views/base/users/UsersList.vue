@@ -40,8 +40,8 @@
     <EditUserModal
       :visible="editModalVisible"
       :user="editedUser"
-      @update="saveUserChanges"
       @close="closeEditModal"
+      @refresh="refreshUsers"
     />
   </div>
 </template>
@@ -57,13 +57,13 @@ export default {
     const usersStore = useUsersStore();
 
     const editModalVisible = ref(false);
-    const editedUser = ref({});
+    const editedUser = ref({}); // Ref for the selected user
 
     const successMessage = ref(null);
     const errorMessage = ref(null);
 
     const openEditModal = (user) => {
-      editedUser.value = { ...user, password: '' };
+      editedUser.value = { ...user }; // Shallow copy of the user
       editModalVisible.value = true;
     };
 
@@ -71,22 +71,8 @@ export default {
       editModalVisible.value = false;
     };
 
-    const saveUserChanges = async (updatedUser) => {
-      const result = await usersStore.editUser(updatedUser.id, {
-        name: updatedUser.name,
-        email: updatedUser.email,
-        password: updatedUser.password,
-      });
-
-      if (result.success) {
-        successMessage.value = 'User updated successfully!';
-        errorMessage.value = null;
-        editModalVisible.value = false;
-        await usersStore.fetchUsers();
-      } else {
-        errorMessage.value = result.message;
-        successMessage.value = null;
-      }
+    const refreshUsers = async () => {
+      await usersStore.fetchUsers();
     };
 
     const blockUser = async (id) => {
@@ -94,6 +80,7 @@ export default {
       if (result.success) {
         successMessage.value = 'User blocked successfully!';
         errorMessage.value = null;
+        await usersStore.fetchUsers(); // Refresh users after blocking
       } else {
         errorMessage.value = result.message;
         successMessage.value = null;
@@ -117,7 +104,7 @@ export default {
       editedUser,
       openEditModal,
       closeEditModal,
-      saveUserChanges,
+      refreshUsers,
       blockUser,
       viewTestList,
     };
