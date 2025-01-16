@@ -43,6 +43,15 @@ export default {
     };
   },
   methods: {
+    editUser(id) {
+      console.log(`Edit user with ID: ${id}`);
+    },
+    blockUser(id) {
+      console.log(`Block user with ID: ${id}`);
+    },
+    viewTestList(id) {
+      console.log(`View test list for user ID: ${id}`);
+    },
   },
 };
 </script>
