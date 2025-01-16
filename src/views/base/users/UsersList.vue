@@ -15,6 +15,17 @@
           <CTableDataCell>{{ user.name }}</CTableDataCell>
           <CTableDataCell>{{ user.email }}</CTableDataCell>
           <CTableDataCell>{{ user.totalTests }}</CTableDataCell>
+          <CTableDataCell>
+            <CButton color="info" size="sm" @click="editUser(user.id)">
+              Edit
+            </CButton>
+            <CButton color="danger" size="sm" class="ms-2" @click="blockUser(user.id)">
+              Block
+            </CButton>
+            <CButton color="success" size="sm" class="ms-2" @click="viewTestList(user.id)">
+              View Test List
+            </CButton>
+          </CTableDataCell>
         </CTableRow>
       </CTableBody>
     </CTable>
@@ -24,6 +35,12 @@
 <script>
 export default {
   data() {
+    return {
+      users: [
+        { id: 1, name: 'John Doe', email: 'john@example.com', totalTests: 5 },
+        { id: 2, name: 'Jane Smith', email: 'jane@example.com', totalTests: 3 },
+      ],
+    };
   },
   methods: {
   },
