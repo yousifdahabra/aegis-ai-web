@@ -10,6 +10,13 @@
           <CTableHeaderCell scope="col">Actions</CTableHeaderCell>
         </CTableRow>
       </CTableHead>
+      <CTableBody>
+        <CTableRow v-for="(user, index) in users" :key="index">
+          <CTableDataCell>{{ user.name }}</CTableDataCell>
+          <CTableDataCell>{{ user.email }}</CTableDataCell>
+          <CTableDataCell>{{ user.totalTests }}</CTableDataCell>
+        </CTableRow>
+      </CTableBody>
     </CTable>
   </div>
 </template>
