@@ -49,21 +49,25 @@
 <script>
 import { useUsersStore } from '@/stores/users';
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
 import EditUserModal from './EditUserModal.vue';
 
 export default {
   components: { EditUserModal },
   setup() {
+    const router = useRouter();
+
     const usersStore = useUsersStore();
 
     const editModalVisible = ref(false);
-    const editedUser = ref({}); // Ref for the selected user
+    const editedUser = ref({});
 
     const successMessage = ref(null);
     const errorMessage = ref(null);
 
     const openEditModal = (user) => {
-      editedUser.value = { ...user }; // Shallow copy of the user
+      editedUser.value = { ...user };
       editModalVisible.value = true;
     };
 
@@ -80,7 +84,7 @@ export default {
       if (result.success) {
         successMessage.value = 'User blocked successfully!';
         errorMessage.value = null;
-        await usersStore.fetchUsers(); // Refresh users after blocking
+        await usersStore.fetchUsers();
       } else {
         errorMessage.value = result.message;
         successMessage.value = null;
@@ -88,7 +92,7 @@ export default {
     };
 
     const viewTestList = (id) => {
-      console.log(`View test list for user ID: ${id}`);
+      router.push({ name: 'TestsList', params: { id } });
     };
 
     onMounted(async () => {
