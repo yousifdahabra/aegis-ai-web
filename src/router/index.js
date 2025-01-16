@@ -7,6 +7,13 @@ const routes = [
     name: 'Home',
     component: () => import('@/views/Home.vue'),
   },
+  // Login
+  {
+    path: '/pages/login',
+    name: 'Login',
+    component: () => import('@/views/pages/Login.vue'),
+  },
+
 ];
 
 const router = createRouter({
