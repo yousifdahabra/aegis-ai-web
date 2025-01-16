@@ -14,9 +14,11 @@
                       <CIcon icon="cil-user" />
                     </CInputGroupText>
                     <CFormInput
-                      v-model="username"
-                      placeholder="Username"
-                      autocomplete="username"
+                      v-model="email"
+                      placeholder="email"
+                      type="email"
+
+                      autocomplete="email"
                     />
                   </CInputGroup>
                   <CInputGroup class="mb-4">
@@ -49,3 +51,18 @@
     </CContainer>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      errorMessage: null,
+    };
+  },
+  methods: {
+  },
+};
+
+ </script>
