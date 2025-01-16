@@ -79,7 +79,7 @@
           <div class="timeline-content request">
             <i class="fa fa-comment-dots icon"></i>
             <p class="timeline-text">
-              <strong>AI Ask:</strong> First question tailored to start your personalized journey.
+              <strong>AI Ask:</strong> First question .
             </p>
           </div>
         </div>
@@ -115,7 +115,7 @@
           <div class="timeline-content request">
             <i class="fa fa-chart-line icon"></i>
             <p class="timeline-text">
-              <strong>AI Result:</strong> Test completed. Receive detailed analysis and feedback.
+              <strong>AI Result:</strong> Test completed. Send detailed analysis and feedback.
             </p>
           </div>
         </div>
