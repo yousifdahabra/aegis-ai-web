@@ -25,7 +25,20 @@ export default [
       },
     ],
   },
-
+  {
+    component: 'CNavGroup',
+    name: 'Requests',
+    to: '/requests',
+    icon: 'cil-task',
+    role: 'all',
+    items: [
+      {
+        component: 'CNavItem',
+        name: 'View Requests',
+        to: '/requests/view',
+      },
+    ],
+  },
 
 
 
