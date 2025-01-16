@@ -15,7 +15,7 @@ export const useUsersStore = defineStore('users', {
         });
 
         if (response.status) {
-          this.users = response.data;
+          this.users = Object.values(response.data);
           return { success: true };
         } else {
           this.errorMessage = response.message;
