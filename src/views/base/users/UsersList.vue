@@ -2,6 +2,7 @@
   <div>
     <h1>Users List</h1>
     <div v-if="errorMessage" class="text-danger mb-3">{{ errorMessage }}</div>
+    <div v-if="successMessage" class="text-success mb-3">{{ successMessage }}</div>
     <div v-if="loading" class="text-center mb-3">Loading...</div>
     <CTable striped hover v-if="!loading && users.length">
       <CTableHead>
@@ -37,6 +38,8 @@
     <CModal :visible="editModalVisible" @close="closeEditModal">
       <CModalHeader>Edit User</CModalHeader>
       <CModalBody>
+        <div v-if="formErrorMessage" class="text-danger mb-3">{{ formErrorMessage }}</div>
+        <div v-if="formSuccessMessage" class="text-success mb-3">{{ formSuccessMessage }}</div>
         <CForm @submit.prevent="saveUserChanges">
           <CFormInput
             v-model="editedUser.name"
@@ -53,14 +56,12 @@
             class="mb-3"
             required
           />
-
           <CFormInput
             v-model="editedUser.password"
             label="Password"
             type="password"
             placeholder="Enter user password"
             class="mb-3"
-
           />
           <CButton color="primary" type="submit">Save Changes</CButton>
         </CForm>
@@ -85,16 +86,25 @@ export default {
       password: '',
     });
 
+    const successMessage = ref(null);
+    const errorMessage = ref(null);
+    const formSuccessMessage = ref(null);
+    const formErrorMessage = ref(null);
+
     const openEditModal = (user) => {
       editedUser.id = user.id;
       editedUser.name = user.name;
       editedUser.email = user.email;
-      editedUser.password = user.password;
+      editedUser.password = '';
+      formSuccessMessage.value = null;
+      formErrorMessage.value = null;
       editModalVisible.value = true;
     };
 
     const closeEditModal = () => {
       editModalVisible.value = false;
+      formSuccessMessage.value = null;
+      formErrorMessage.value = null;
     };
 
     const saveUserChanges = async () => {
@@ -105,17 +115,26 @@ export default {
       });
 
       if (result.success) {
-        alert('User updated successfully!');
-        closeEditModal();
+        formSuccessMessage.value = 'User updated successfully!';
+        formErrorMessage.value = null;
+
+        setTimeout(() => {
+          closeEditModal();
+        }, 1500);
       } else {
-        alert(result.message);
+        formErrorMessage.value = result.message;
+        formSuccessMessage.value = null;
       }
     };
 
     const blockUser = async (id) => {
       const result = await usersStore.blockUser(id);
-      if (!result.success) {
-        alert(result.message);
+      if (result.success) {
+        successMessage.value = 'User blocked successfully!';
+        errorMessage.value = null;
+      } else {
+        errorMessage.value = result.message;
+        successMessage.value = null;
       }
     };
 
@@ -129,10 +148,13 @@ export default {
 
     return {
       users: usersStore.users,
-      errorMessage: usersStore.errorMessage,
+      errorMessage,
+      successMessage,
       loading: usersStore.loading,
       editModalVisible,
       editedUser,
+      formSuccessMessage,
+      formErrorMessage,
       openEditModal,
       closeEditModal,
       saveUserChanges,
