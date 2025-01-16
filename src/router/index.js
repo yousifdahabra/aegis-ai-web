@@ -43,6 +43,19 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/base/tests/',
+    component: DefaultLayout,
+    children: [
+      {
+        path: '/',
+        name: 'TestsList',
+        component: () => import('@/views/base/tests/TestsList.vue'),
+          },
+    ],
+  },
+
+
 ];
 
 const router = createRouter({
