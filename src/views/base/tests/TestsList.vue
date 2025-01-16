@@ -16,6 +16,24 @@
           <CTableHeaderCell>Actions</CTableHeaderCell>
         </CTableRow>
       </CTableHead>
+      <CTableBody>
+        <CTableRow v-for="(test) in tests" :key="test.id">
+          <CTableDataCell>{{ test.id }}</CTableDataCell>
+          <CTableDataCell>{{ test.title }}</CTableDataCell>
+          <CTableDataCell>{{ test.security }}</CTableDataCell>
+          <CTableDataCell>{{ test.user_name }}</CTableDataCell>
+          <CTableDataCell>{{ test.test_state }}</CTableDataCell>
+          <CTableDataCell>{{ test.questions_count }}</CTableDataCell>
+          <CTableDataCell>
+            <CButton color="info" size="sm" @click="viewTestDetails(test.id)">
+              View Details
+            </CButton>
+            <CButton color="danger" size="sm" class="ms-2" @click="deleteTest(test.id)">
+              Delete
+            </CButton>
+          </CTableDataCell>
+        </CTableRow>
+      </CTableBody>
     </CTable>
   </div>
 </template>
