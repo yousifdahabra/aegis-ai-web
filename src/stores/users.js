@@ -30,7 +30,7 @@ export const useUsersStore = defineStore('users', {
       try {
         const response = await requestAPI({
           route: `users/block/${userId}`,
-          method: 'POST',
+          method: 'DELETE',
         });
 
         if (response.status) {

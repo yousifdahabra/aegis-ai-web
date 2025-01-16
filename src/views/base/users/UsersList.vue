@@ -10,6 +10,7 @@
           <CTableHeaderCell>Name</CTableHeaderCell>
           <CTableHeaderCell>Email</CTableHeaderCell>
           <CTableHeaderCell>Role</CTableHeaderCell>
+          <CTableHeaderCell>States</CTableHeaderCell>
           <CTableHeaderCell>Actions</CTableHeaderCell>
         </CTableRow>
       </CTableHead>
@@ -18,6 +19,7 @@
           <CTableDataCell>{{ user.name }}</CTableDataCell>
           <CTableDataCell>{{ user.email }}</CTableDataCell>
           <CTableDataCell>{{ user.user_role_id }}</CTableDataCell>
+          <CTableDataCell>{{ user.blocked ? 'Block':'Active' }}</CTableDataCell>
           <CTableDataCell>
             <CButton color="info" size="sm" @click="openEditModal(user)">Edit</CButton>
             <CButton color="danger" size="sm" class="ms-2" @click="blockUser(user.id)">
