@@ -15,9 +15,8 @@
                     </CInputGroupText>
                     <CFormInput
                       v-model="email"
-                      placeholder="email"
+                      placeholder="Email"
                       type="email"
-
                       autocomplete="email"
                     />
                   </CInputGroup>
@@ -54,7 +53,7 @@
 
 <script>
 import { useAuthStore } from '@/stores/auth';
-import { requestAPI } from '@/utlis/request';
+
 export default {
   data() {
     return {
@@ -65,35 +64,22 @@ export default {
   },
   methods: {
     async handleLogin() {
-      try {
-        const response = await requestAPI({
-          route: 'login',
-          method: 'POST',
-          body: {
-            email: this.email,
-            password: this.password,
-          },
-          header: 'application/json',
-        });
+      const authStore = useAuthStore();
+      const credentials = { email: this.email, password: this.password };
 
-        if (response.status) {
-          const authStore = useAuthStore();
-          authStore.token = response.token;
-          authStore.user = response.user;
+      const response = await authStore.login(credentials);
 
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('user', JSON.stringify(response.user));
-
-          this.$router.push('/dashboard/overview');
-
-        } else {
-          this.errorMessage = response.message;
+      if (response) {
+        const role = localStorage.getItem('role');
+         if (role === 'user') {
+          this.$router.push('/home');
+        }else{
+          this.$router.push('/dashboard');
         }
-      } catch (error) {
-        this.errorMessage = error.message || 'An unexpected error occurred';
+      } else {
+        this.errorMessage = response.message || 'Login failed.';
       }
     },
   },
 };
-
- </script>
+</script>
