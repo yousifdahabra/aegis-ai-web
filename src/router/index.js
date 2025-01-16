@@ -1,29 +1,40 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import DefaultLayout from '@/layouts/DefaultLayout.vue';
 
 const routes = [
-  // Home
+  // Home route
   {
     path: '/',
     name: 'Home',
     component: () => import('@/views/Home.vue'),
   },
-  // Login
+  // Login route
   {
     path: '/pages/login',
     name: 'Login',
     component: () => import('@/views/pages/Login.vue'),
   },
-  // Dashboard
   {
     path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('@/views/dashboard/Dashboard.vue'),
+    component: DefaultLayout,
+    children: [
+      {
+        path: 'overview',
+        name: 'Dashboard',
+        component: () => import('@/views/dashboard/Dashboard.vue'),
+      },
+    ],
   },
-  // Users List
   {
-    path: '/base/users/list',
-    name: 'UsersList',
-    component: () => import('@/views/base/users/UsersList.vue'),
+    path: '/base/users',
+    component: DefaultLayout,
+    children: [
+      {
+        path: 'list',
+        name: 'UsersList',
+        component: () => import('@/views/base/users/UsersList.vue'),
+      },
+    ],
   },
 ];
 
@@ -31,6 +42,7 @@ const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior() {
+    // Always scroll to top
     return { top: 0 };
   },
 });
