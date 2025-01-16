@@ -84,6 +84,23 @@ export default {
       birth_year: '',
     });
 
+    const openEditModal = (user) => {
+      editedUser.id = user.id;
+      editedUser.name = user.name;
+      editedUser.email = user.email;
+      editedUser.birth_year = user.birth_year;
+      editModalVisible.value = true;
+    };
+
+    const closeEditModal = () => {
+      editModalVisible.value = false;
+    };
+
+    const saveUserChanges = async () => {
+      console.log(`Saving changes for user ID: ${editedUser.id}`);
+      closeEditModal();
+    };
+
     const blockUser = async (id) => {
       const result = await usersStore.blockUser(id);
       if (!result.success) {
@@ -105,6 +122,9 @@ export default {
       loading: usersStore.loading,
       editModalVisible,
       editedUser,
+      openEditModal,
+      closeEditModal,
+      saveUserChanges,
       blockUser,
       viewTestList,
     };
