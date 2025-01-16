@@ -6,7 +6,7 @@
           <CCardGroup>
             <CCard class="p-4">
               <CCardBody>
-                <CForm>
+                <CForm @submit.prevent="handleLogin">
                   <h1>Login</h1>
                   <p class="text-body-secondary">Sign In to your account</p>
                   <CInputGroup class="mb-3">
@@ -14,6 +14,7 @@
                       <CIcon icon="cil-user" />
                     </CInputGroupText>
                     <CFormInput
+                      v-model="username"
                       placeholder="Username"
                       autocomplete="username"
                     />
@@ -23,6 +24,7 @@
                       <CIcon icon="cil-lock-locked" />
                     </CInputGroupText>
                     <CFormInput
+                      v-model="password"
                       type="password"
                       placeholder="Password"
                       autocomplete="current-password"
@@ -30,10 +32,14 @@
                   </CInputGroup>
                   <CRow>
                     <CCol :xs="6">
-                      <CButton color="primary" class="px-4"> Login </CButton>
+                      <CButton color="primary" class="px-4" type="submit">
+                        Login
+                      </CButton>
                     </CCol>
-
                   </CRow>
+                  <div v-if="errorMessage" class="text-danger mt-2">
+                    {{ errorMessage }}
+                  </div>
                 </CForm>
               </CCardBody>
             </CCard>
