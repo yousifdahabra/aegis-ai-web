@@ -14,6 +14,7 @@ const routes = [
     name: 'Login',
     component: () => import('@/views/pages/Login.vue'),
   },
+  // Dashboard
   {
     path: '/dashboard',
     component: DefaultLayout,
