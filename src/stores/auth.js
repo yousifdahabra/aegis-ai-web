@@ -31,6 +31,12 @@ export const useAuthStore = defineStore('auth', {
         return { success: false, message: 'An error occurred during login.' };
       }
     },
+    logout() {
+      this.token = null;
+      this.user = null;
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+    },
   },
   getters: {
     isAuthenticated: (state) => !!state.token,
