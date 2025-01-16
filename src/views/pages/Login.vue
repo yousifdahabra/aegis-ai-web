@@ -53,6 +53,8 @@
 </template>
 
 <script>
+import { useAuthStore } from '@/stores/auth';
+import { requestAPI } from '@/utlis/request';
 export default {
   data() {
     return {
@@ -62,6 +64,20 @@ export default {
     };
   },
   methods: {
+    async handleLogin() {
+        const response = await requestAPI({
+          route: 'login',
+          method: 'POST',
+          body: {
+            email: this.email,
+            password: this.password,
+          },
+          header: 'application/json',
+        });
+
+
+
+    },
   },
 };
 
