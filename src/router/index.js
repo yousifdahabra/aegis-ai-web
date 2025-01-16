@@ -19,7 +19,12 @@ const routes = [
     name: 'Dashboard',
     component: () => import('@/views/dashboard/Dashboard.vue'),
   },
-
+  // Users List
+  {
+    path: '/base/users/list',
+    name: 'UsersList',
+    component: () => import('@/views/base/users/UsersList.vue'),
+  },
 ];
 
 const router = createRouter({
