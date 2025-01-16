@@ -5,6 +5,7 @@ export const useAuthStore = defineStore('auth', {
   state: () => ({
     token: localStorage.getItem('token') || null,
     user: JSON.parse(localStorage.getItem('user')) || null,
+    role: localStorage.getItem('role') || '',
   }),
   actions: {
     async login(credentials) {
@@ -16,11 +17,18 @@ export const useAuthStore = defineStore('auth', {
           header: 'application/json',
         });
 
-        if (response.success) {
+        if (response) {
           this.token = response.token;
           this.user = response.user;
+          const user_role_id = response.user.user_role_id;
+          let role = '';
 
-          localStorage.setItem('token', response.token);
+          if(user_role_id == 1) role = 'admin';
+          else if(user_role_id == 2) role = 'expert';
+          else if(user_role_id == 3) role = 'user';
+
+          localStorage.setItem('token',"Bearer "+ response.token);
+          localStorage.setItem('role', role);
           localStorage.setItem('user', JSON.stringify(response.user));
 
           return { success: true };
