@@ -2,7 +2,10 @@ import { defineStore } from 'pinia';
 import { requestAPI } from '@/utils/request';
 
 export const useAuthStore = defineStore('auth', {
-  state: () => ({}),
+  state: () => ({
+    token: localStorage.getItem('token') || null,
+    user: JSON.parse(localStorage.getItem('user')) || null,
+  }),
   actions: {
     async login(credentials) {
       try {
@@ -29,5 +32,8 @@ export const useAuthStore = defineStore('auth', {
       }
     },
   },
-  getters: {},
+  getters: {
+    isAuthenticated: (state) => !!state.token,
+    getUser: (state) => state.user,
+  },
 });
