@@ -16,6 +16,19 @@ export const requestAPI = async ({ route, method = 'GET', body, header = 'applic
 
     return response.data;
   } catch (error) {
-    return error.response;
+    if (error.response) {
+      const { status, data } = error.response;
+
+      if (status === 422) {
+        const errors = data.errors
+          ? Object.values(data.errors).flat().join(', ')
+          : null;
+
+        return {
+          status: false,
+          message: `${data.message || 'Validation failed'}${errors ? ': ' + errors : ''}`,
+        };
+      }
+    }
   }
 };
