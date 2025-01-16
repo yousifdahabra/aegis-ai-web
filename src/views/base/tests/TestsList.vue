@@ -35,6 +35,9 @@
         </CTableRow>
       </CTableBody>
     </CTable>
+    <div v-else-if="!loading && !tests.length" class="text-center">
+      No tests found.
+    </div>
   </div>
 </template>
 
