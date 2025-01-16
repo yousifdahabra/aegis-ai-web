@@ -19,7 +19,7 @@
           <CTableDataCell>{{ user.name }}</CTableDataCell>
           <CTableDataCell>{{ user.email }}</CTableDataCell>
           <CTableDataCell>{{ user.user_role_id }}</CTableDataCell>
-          <CTableDataCell>{{ user.blocked ? 'Block':'Active' }}</CTableDataCell>
+          <CTableDataCell>{{ user.blocked ? 'Block' : 'Active' }}</CTableDataCell>
           <CTableDataCell>
             <CButton color="info" size="sm" @click="openEditModal(user)">Edit</CButton>
             <CButton color="danger" size="sm" class="ms-2" @click="blockUser(user.id)">
@@ -36,96 +36,56 @@
       No users found.
     </div>
 
-    <!-- Edit User Modal -->
-    <CModal :visible="editModalVisible" @close="closeEditModal">
-      <CModalHeader>Edit User</CModalHeader>
-      <CModalBody>
-        <div v-if="formErrorMessage" class="text-danger mb-3">{{ formErrorMessage }}</div>
-        <div v-if="formSuccessMessage" class="text-success mb-3">{{ formSuccessMessage }}</div>
-        <CForm @submit.prevent="saveUserChanges">
-          <CFormInput
-            v-model="editedUser.name"
-            label="Name"
-            placeholder="Enter user name"
-            class="mb-3"
-            required
-          />
-          <CFormInput
-            v-model="editedUser.email"
-            label="Email"
-            type="email"
-            placeholder="Enter user email"
-            class="mb-3"
-            required
-          />
-          <CFormInput
-            v-model="editedUser.password"
-            label="Password"
-            type="password"
-            placeholder="Enter user password"
-            class="mb-3"
-          />
-          <CButton color="primary" type="submit">Save Changes</CButton>
-        </CForm>
-      </CModalBody>
-    </CModal>
+    <!-- Use the new EditUserModal component -->
+    <EditUserModal
+      :visible="editModalVisible"
+      :user="editedUser"
+      @update="saveUserChanges"
+      @close="closeEditModal"
+    />
   </div>
 </template>
 
 <script>
 import { useUsersStore } from '@/stores/users';
-import { reactive, ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
+import EditUserModal from './EditUserModal.vue';
 
 export default {
+  components: { EditUserModal },
   setup() {
     const usersStore = useUsersStore();
 
     const editModalVisible = ref(false);
-    const editedUser = reactive({
-      id: null,
-      name: '',
-      email: '',
-      password: '',
-    });
+    const editedUser = ref({});
 
     const successMessage = ref(null);
     const errorMessage = ref(null);
-    const formSuccessMessage = ref(null);
-    const formErrorMessage = ref(null);
 
     const openEditModal = (user) => {
-      editedUser.id = user.id;
-      editedUser.name = user.name;
-      editedUser.email = user.email;
-      editedUser.password = '';
-      formSuccessMessage.value = null;
-      formErrorMessage.value = null;
+      editedUser.value = { ...user, password: '' };
       editModalVisible.value = true;
     };
 
     const closeEditModal = () => {
       editModalVisible.value = false;
-      formSuccessMessage.value = null;
-      formErrorMessage.value = null;
     };
 
-    const saveUserChanges = async () => {
-      const result = await usersStore.editUser(editedUser.id, {
-        name: editedUser.name,
-        email: editedUser.email,
-        password: editedUser.password,
+    const saveUserChanges = async (updatedUser) => {
+      const result = await usersStore.editUser(updatedUser.id, {
+        name: updatedUser.name,
+        email: updatedUser.email,
+        password: updatedUser.password,
       });
 
       if (result.success) {
-        formSuccessMessage.value = 'User updated successfully!';
-        formErrorMessage.value = null;
-
-        setTimeout(() => {
-          closeEditModal();
-        }, 1500);
+        successMessage.value = 'User updated successfully!';
+        errorMessage.value = null;
+        editModalVisible.value = false;
+        await usersStore.fetchUsers();
       } else {
-        formErrorMessage.value = result.message;
-        formSuccessMessage.value = null;
+        errorMessage.value = result.message;
+        successMessage.value = null;
       }
     };
 
@@ -155,8 +115,6 @@ export default {
       loading: usersStore.loading,
       editModalVisible,
       editedUser,
-      formSuccessMessage,
-      formErrorMessage,
       openEditModal,
       closeEditModal,
       saveUserChanges,
