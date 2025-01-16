@@ -65,6 +65,7 @@ export default {
   },
   methods: {
     async handleLogin() {
+      try {
         const response = await requestAPI({
           route: 'login',
           method: 'POST',
@@ -75,8 +76,19 @@ export default {
           header: 'application/json',
         });
 
+        if (response.status) {
+          const authStore = useAuthStore();
+          authStore.token = response.token;
+          authStore.user = response.user;
 
-
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('user', JSON.stringify(response.user));
+        } else {
+          this.errorMessage = response.message;
+        }
+      } catch (error) {
+        this.errorMessage = error.message || 'An unexpected error occurred';
+      }
     },
   },
 };
