@@ -10,6 +10,12 @@ const routes = [
   },
   // Login route
   {
+    path: '/login',
+    name: 'Home',
+    component: () => import('@/views/pages/Login.vue'),
+  },
+  // Login route
+  {
     path: '/pages/login',
     name: 'Login',
     component: () => import('@/views/pages/Login.vue'),
