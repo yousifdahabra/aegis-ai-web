@@ -56,7 +56,7 @@ export default {
       await testsStore.fetchTests(userId);
     };
 
-    const viewTestDetails = (testId) => {
+    const viewTestDetails =  (testId) => {
       router.push({ name: 'TestDetails', params: { testId } });
     };
 
