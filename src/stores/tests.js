@@ -47,8 +47,6 @@ export const useTestsStore = defineStore('tests', {
           header: 'application/json',
         });
 
-        console.log(response)
-
         if (response.status) {
           this.testDetails = response.data.test;
           this.questions = Object.values(response.data.question);
@@ -66,6 +64,23 @@ export const useTestsStore = defineStore('tests', {
         this.loading = false;
       }
     },
+
+    async addTest(testData) {
+         this.loading = true;
+        this.errorMessage = null;
+
+        console.log('Request Data:', testData);
+
+        const response = await requestAPI({
+          route: 'tests/store-full-test',
+          method: 'POST',
+          body: testData,
+          header: 'application/json',
+        });
+
+
+    }
+
   },
   persist: true,
 });

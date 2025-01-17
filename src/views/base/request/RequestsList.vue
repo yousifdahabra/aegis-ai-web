@@ -29,7 +29,7 @@
             <CButton color="info" size="sm" @click="viewTestList(request.user.id)">
               View Test List
             </CButton>
-            <CButton color="primary" size="sm" class="ms-2" @click="redirectToAddTest(request.user_id)">
+            <CButton color="primary" size="sm" class="ms-2" @click="redirectToAddTest(request.user.id)">
               Add Test
             </CButton>
           </CTableDataCell>
@@ -61,8 +61,8 @@ export default {
       router.push({ name: 'TestsList', params: { id } });
     };
 
-    const redirectToAddTest = (userId) => {
-      router.push({ name: 'AddTest', params: { userId } });
+    const redirectToAddTest = (id) => {
+      router.push({ name: 'AddTest', params: { id } });
     };
 
     onMounted(() => {
