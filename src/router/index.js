@@ -79,6 +79,17 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/base/expert',
+    component: DefaultLayout,
+    children: [
+      {
+        path: 'list',
+        name: 'ExpertRequestList',
+        component: () => import('@/views/base/expert/ExpertRequestList.vue'),
+      },
+    ],
+  },
 
 
 ];
