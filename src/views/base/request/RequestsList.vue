@@ -14,6 +14,22 @@
           <CTableHeaderCell>Actions</CTableHeaderCell>
         </CTableRow>
       </CTableHead>
+      <CTableBody>
+        <CTableRow v-for="(request) in requests" :key="request.id">
+          <CTableDataCell>{{ request.user.name }}</CTableDataCell>
+          <CTableDataCell>{{ request.about_user }}</CTableDataCell>
+          <CTableDataCell>{{ request.user_note }}</CTableDataCell>
+          <CTableDataCell>{{ request.links }}</CTableDataCell>
+          <CTableDataCell>
+            <CButton color="info" size="sm" @click="viewTestList(request.user.id)">
+              View Test List
+            </CButton>
+            <CButton color="primary" size="sm" class="ms-2" @click="redirectToAddTest(request.user_id)">
+              Add Test
+            </CButton>
+          </CTableDataCell>
+        </CTableRow>
+      </CTableBody>
     </CTable>
     <div v-else-if="!loading && !requests.length" class="text-center">
       No requests found.
