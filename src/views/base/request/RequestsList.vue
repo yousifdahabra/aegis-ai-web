@@ -15,6 +15,9 @@
         </CTableRow>
       </CTableHead>
     </CTable>
+    <div v-else-if="!loading && !requests.length" class="text-center">
+      No requests found.
+    </div>
   </div>
 </template>
 
