@@ -28,9 +28,6 @@
             <CButton color="info" size="sm" @click="viewTestDetails(test.id)">
               View Details
             </CButton>
-            <CButton color="danger" size="sm" class="ms-2" @click="deleteTest(test.id)">
-              Delete
-            </CButton>
           </CTableDataCell>
         </CTableRow>
       </CTableBody>
@@ -42,4 +39,32 @@
 </template>
 
 <script>
+import { useRoute } from 'vue-router';
+import { onMounted } from 'vue';
+import { useTestsStore } from '@/stores/tests';
+
+export default {
+  name: 'TestsList',
+  setup() {
+    const route = useRoute();
+    const testsStore = useTestsStore();
+
+    const userId = route.params.id;
+
+    const fetchTests = async () => {
+      await testsStore.fetchTests(userId);
+    };
+
+    onMounted(() => {
+      fetchTests();
+    });
+
+    return {
+      tests: testsStore.tests,
+      loading: testsStore.loading,
+      errorMessage: testsStore.errorMessage,
+      successMessage: testsStore.successMessage,
+    };
+  },
+};
 </script>

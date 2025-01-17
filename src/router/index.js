@@ -44,14 +44,15 @@ const routes = [
     ],
   },
   {
-    path: '/base/tests/',
+    path: '/base/tests/:id',
     component: DefaultLayout,
     children: [
       {
-        path: '/',
+        path: '',
         name: 'TestsList',
         component: () => import('@/views/base/tests/TestsList.vue'),
-          },
+        props: true,
+      },
     ],
   },
 

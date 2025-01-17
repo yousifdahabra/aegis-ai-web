@@ -19,9 +19,11 @@ export const useTestsStore = defineStore('tests', {
           method: 'GET',
           header: 'application/json',
         });
+        console.log('response')
+        console.log(response)
 
-        if (response.success) {
-          this.tests = response.data;
+        if (response) {
+          this.tests = Object.values(response.data);
         } else {
           this.errorMessage = response.message;
           this.tests = [];
