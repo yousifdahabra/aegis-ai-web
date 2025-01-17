@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { onMounted } from 'vue';
 import { useTestsStore } from '@/stores/tests';
 
@@ -47,12 +47,17 @@ export default {
   name: 'TestsList',
   setup() {
     const route = useRoute();
+    const router = useRouter();
     const testsStore = useTestsStore();
 
     const userId = route.params.id;
 
     const fetchTests = async () => {
       await testsStore.fetchTests(userId);
+    };
+
+    const viewTestDetails = (testId) => {
+      router.push({ name: 'TestDetails', params: { testId } });
     };
 
     onMounted(() => {
@@ -64,6 +69,7 @@ export default {
       loading: testsStore.loading,
       errorMessage: testsStore.errorMessage,
       successMessage: testsStore.successMessage,
+      viewTestDetails,
     };
   },
 };
