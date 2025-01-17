@@ -145,7 +145,30 @@ export default {
       }
     };
 
+    const submitTest = async () => {
+      const expertId = JSON.parse(localStorage.getItem("user")).id;
 
+      const payload = {
+        title: testTitle.value,
+        user_id: props.id,
+        expert_id: expertId,
+        questions: questions.value.map((q) => ({
+          type_question: parseInt(q.type, 10),
+          question: q.text,
+          options: q.options,
+        })),
+      };
+
+      const result = await testsStore.addTest(payload);
+
+      if (result.success) {
+        successMessage.value = "Test added successfully!";
+        errorMessage.value = null;
+      } else {
+        errorMessage.value = `Failed to add test: ${result.message}`;
+        successMessage.value = null;
+      }
+    };
 
     return {
       testTitle,
@@ -158,6 +181,7 @@ export default {
       addOption,
       removeOption,
       handleQuestionTypeChange,
+      submitTest,
     };
   },
 };
