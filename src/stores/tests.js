@@ -70,8 +70,6 @@ export const useTestsStore = defineStore('tests', {
         this.loading = true;
         this.errorMessage = null;
 
-        console.log('Request Data:', testData);
-
         const response = await requestAPI({
           route: 'tests/store-full-test',
           method: 'POST',
