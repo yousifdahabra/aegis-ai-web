@@ -66,7 +66,8 @@ export const useTestsStore = defineStore('tests', {
     },
 
     async addTest(testData) {
-         this.loading = true;
+      try {
+        this.loading = true;
         this.errorMessage = null;
 
         console.log('Request Data:', testData);
@@ -78,7 +79,19 @@ export const useTestsStore = defineStore('tests', {
           header: 'application/json',
         });
 
-
+        if (response.status) {
+          this.successMessage = 'Test added successfully!';
+          return { success: true };
+        } else {
+          this.errorMessage = response.message;
+          return { success: false, message: response.message };
+        }
+      } catch (error) {
+        this.errorMessage = 'Failed to add test. Please try again.';
+        return { success: false, message: 'Failed to add test. Please try again.' };
+      } finally {
+        this.loading = false;
+      }
     }
 
   },
