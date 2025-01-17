@@ -85,6 +85,41 @@
 </template>
 
 <script>
+import { ref } from "vue";
+
+export default {
+  name: "AddTest",
+  props: ["id"],
+    mounted() {
+  },
+
+  setup() {
+    const testTitle = ref("");
+    const questions = ref([
+      {
+        text: "",
+        type: "1",
+        options: [],
+      },
+    ]);
+    const questionTypes = [
+      { value: 1, text: "Input" },
+      { value: 2, text: "Radio" },
+      { value: 3, text: "Checkbox" },
+      { value: 6, text: "Voice" },
+    ];
+    const successMessage = ref(null);
+    const errorMessage = ref(null);
+
+    return {
+      testTitle,
+      questions,
+      questionTypes,
+      successMessage,
+      errorMessage,
+    };
+  },
+};
 </script>
 
 <style scoped>
