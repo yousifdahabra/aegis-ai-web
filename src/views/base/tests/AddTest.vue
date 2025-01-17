@@ -18,16 +18,27 @@
         required
         class="mb-2"
       />
+      <label>Question Type</label>
       <CFormSelect
         v-model="question.type"
-        label="Question Type"
-        :options="questionTypes"
-        required
         class="mb-2"
-      />
-      <div v-if="question.type === 'multiple-choice'" class="mb-3">
+        @change="handleQuestionTypeChange(index)"
+      >
+        <option
+          v-for="type in questionTypes"
+          :key="type.value"
+          :value="String(type.value)"
+        >
+          {{ type.text }}
+        </option>
+      </CFormSelect>
+      <div v-if="question.type === '2' || question.type === '3'" class="mb-3">
         <h6>Options</h6>
-        <div v-for="(option, optIndex) in question.options" :key="optIndex" class="d-flex align-items-center mb-2">
+        <div
+          v-for="(option, optIndex) in question.options"
+          :key="optIndex"
+          class="d-flex align-items-center mb-2"
+        >
           <CFormInput
             v-model="question.options[optIndex]"
             placeholder="Enter option"
@@ -38,9 +49,13 @@
             -
           </CButton>
         </div>
-        <CButton color="primary" size="sm" @click="addOption(index)">Add Option</CButton>
+        <CButton color="primary" size="sm" class="mt-2" @click="addOption(index)">
+          Add Option
+        </CButton>
       </div>
-      <CButton color="danger" size="sm" class="mt-2" @click="removeQuestion(index)">Remove Question</CButton>
+      <CButton color="danger" size="sm" class="mt-2" @click="removeQuestion(index)">
+        Remove Question
+      </CButton>
       <hr />
     </div>
     <div class="d-flex justify-content-between align-items-center mt-4">
@@ -51,7 +66,6 @@
 </template>
 
 <script>
-
 </script>
 
 <style scoped>
