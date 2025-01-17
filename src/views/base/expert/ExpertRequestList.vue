@@ -41,8 +41,36 @@
       </CTableBody>
     </CTable>
 
+    <div v-else-if="!loading && !expertRequests.length" class="text-center">
+      No expert requests found.
+    </div>
   </div>
 </template>
 
 <script>
+import { useExpertRequestsStore } from "@/stores/expertRequests";
+import { onMounted } from "vue";
+
+export default {
+  name: "ExpertRequestList",
+  setup() {
+    const expertRequestsStore = useExpertRequestsStore();
+
+    const fetchExpertRequests = async () => {
+      await expertRequestsStore.fetchExpertRequests();
+    };
+
+
+    onMounted(() => {
+      fetchExpertRequests();
+    });
+
+    return {
+      expertRequests: expertRequestsStore.requests,
+      loading: expertRequestsStore.loading,
+      errorMessage: expertRequestsStore.errorMessage,
+      successMessage: expertRequestsStore.successMessage,
+    };
+  },
+};
 </script>
