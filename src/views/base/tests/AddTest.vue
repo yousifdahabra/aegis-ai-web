@@ -25,7 +25,24 @@
         required
         class="mb-2"
       />
-
+      <div v-if="question.type === 'multiple-choice'" class="mb-3">
+        <h6>Options</h6>
+        <div v-for="(option, optIndex) in question.options" :key="optIndex" class="d-flex align-items-center mb-2">
+          <CFormInput
+            v-model="question.options[optIndex]"
+            placeholder="Enter option"
+            class="me-2"
+            required
+          />
+          <CButton color="danger" size="sm" @click="removeOption(index, optIndex)">
+            -
+          </CButton>
+        </div>
+        <CButton color="primary" size="sm" @click="addOption(index)">Add Option</CButton>
+      </div>
+      <CButton color="danger" size="sm" class="mt-2" @click="removeQuestion(index)">Remove Question</CButton>
+      <hr />
+    </div>
 
   </div>
 </template>
