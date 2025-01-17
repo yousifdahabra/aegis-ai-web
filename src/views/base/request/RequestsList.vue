@@ -20,6 +20,11 @@
           <CTableDataCell>{{ request.about_user }}</CTableDataCell>
           <CTableDataCell>{{ request.user_note }}</CTableDataCell>
           <CTableDataCell>{{ request.links }}</CTableDataCell>
+          <!-- <CTableDataCell>
+            <a v-for="(link, index) in request.links" :key="index" :href="link" target="_blank">
+              Link {{ index + 1 }}
+            </a>
+          </CTableDataCell> -->
           <CTableDataCell>
             <CButton color="info" size="sm" @click="viewTestList(request.user.id)">
               View Test List
@@ -38,4 +43,29 @@
 </template>
 
 <script>
+import { onMounted } from 'vue';
+import { useRequestsStore } from '@/stores/requests';
+
+export default {
+  name: 'ViewRequests',
+  setup() {
+    const requestsStore = useRequestsStore();
+
+    const fetchRequests = async () => {
+      await requestsStore.fetchRequests();
+    };
+
+
+    onMounted(() => {
+      fetchRequests();
+    });
+
+    return {
+      requests: requestsStore.requests,
+      loading: requestsStore.loading,
+      errorMessage: requestsStore.errorMessage,
+      successMessage: requestsStore.successMessage,
+    };
+  },
+};
 </script>
