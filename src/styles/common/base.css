@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Syne-Main-Title;
+  src: url("../../assets/fonts/Syne/Syne-Medium.ttf");
+}
+
+@font-face {
+  font-family: IBM-Plex-Sans;
+  src: url("../../assets/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf");
+}
+
 :root {
     --main-title-color: #16354D;
     --sub-title-color: #1E1E1E;
@@ -7,15 +17,7 @@
     --input-background-color: #d7d8df;
     --button-background-color: #285981;
     --hover-button-background-color:rgba(26, 62, 92, 0.877);
-}
-@font-face {
-    font-family: Syne-Main-Title;
-    src: url("../../assets/fonts/Syne/Syne-Medium.ttf");
-}
-
-@font-face {
-    font-family: IBM-Plex-Sans;
-    src: url("../../assets/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf");
+    --cui-btn-font-family:IBM-Plex-Sans;
 }
 
 * {
@@ -24,7 +26,9 @@
 }
 
 
-
+h1,h2,h3{
+  font-family: Syne-Main-Title;
+}
 .main-title{
     font-family: 'Syne-Main-Title';
     font-size: 48px;
@@ -52,6 +56,16 @@ button{
     color: var(--button-text-color);
     padding: 10px 0;
     border-radius: 10px;
+}
+.btn-primary{
+    font-family: 'IBM-Plex-Sans';
+    font-size: 16px;
+    line-height: 20px;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+}
+.btn-success,.btn-danger{
+  color: var(--button-text-color);
 }
 p{
     font-family: 'IBM-Plex-Sans';

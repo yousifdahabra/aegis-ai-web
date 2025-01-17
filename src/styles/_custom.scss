@@ -1,1 +1,15 @@
 // Here you can add other styles
+$btn-primary-bg: #285981;
+$btn-primary-color: #FFFFFF;
+$btn-primary-hover-bg: rgba(26, 62, 92, 0.877);
+@font-face {
+  font-family: Syne-Main-Title;
+  src: url("../assets/fonts/Syne/Syne-Medium.ttf");
+}
+
+@font-face {
+  font-family: IBM-Plex-Sans;
+  src: url("../assets/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf");
+}
+$body-font-family:IBM-Plex-Sans;
+$headings-font-family: Syne-Main-Title;
