@@ -26,7 +26,7 @@ const routes = [
     component: DefaultLayout,
     children: [
       {
-        path: 'overview',
+        path: '/dashboard',
         name: 'Dashboard',
         component: () => import('@/views/dashboard/Dashboard.vue'),
       },
@@ -60,6 +60,17 @@ const routes = [
         props: true,
       },
 
+    ],
+  },
+  {
+    path: '/base/request',
+    component: DefaultLayout,
+    children: [
+      {
+        path: 'view',
+        name: 'ViewRequests',
+        component: () => import('@/views/base/request/RequestsList.vue'),
+      },
     ],
   },
 

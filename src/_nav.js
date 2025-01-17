@@ -2,7 +2,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'Dashboard',
-    to: '/dashboard/overview',
+    to: '/dashboard',
     icon: 'cil-speedometer',
     role: 'all',
   },
@@ -30,7 +30,7 @@ export default [
       {
         component: 'CNavItem',
         name: 'View Requests',
-        to: '/requests/view',
+        to: '/base/request/view',
       },
     ],
   },

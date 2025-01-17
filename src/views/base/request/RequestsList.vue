@@ -62,7 +62,7 @@ export default {
     };
 
     const redirectToAddTest = (userId) => {
-      router.push({ name: 'AddTest', params: { userId } }); // Assuming AddTest route will be added.
+      router.push({ name: 'AddTest', params: { userId } });
     };
 
     onMounted(() => {
