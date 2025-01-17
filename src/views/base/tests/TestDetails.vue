@@ -44,4 +44,29 @@
 </template>
 
 <script>
+import { useRoute } from 'vue-router';
+import { onMounted } from 'vue';
+import { useTestsStore } from '@/stores/tests';
+
+export default {
+  name: 'TestDetails',
+  setup() {
+    const route = useRoute();
+    const testsStore = useTestsStore();
+
+    const testId = route.params.testId;
+
+    onMounted(async () => {
+      await testsStore.fetchTestDetails(testId);
+    });
+
+    return {
+      testDetails: testsStore.testDetails,
+      questions: testsStore.questions,
+      loading: testsStore.loading,
+      errorMessage: testsStore.errorMessage,
+      successMessage: testsStore.successMessage,
+    };
+  },
+};
 </script>
