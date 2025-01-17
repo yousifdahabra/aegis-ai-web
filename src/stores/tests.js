@@ -51,7 +51,7 @@ export const useTestsStore = defineStore('tests', {
         console.log(response)
 
         if (response.status) {
-          this.testDetails = Object.values(response.data.test);
+          this.testDetails = response.data.test;
           this.questions = Object.values(response.data.question);
           this.successMessage = response.message;
         } else {

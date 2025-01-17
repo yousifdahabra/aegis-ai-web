@@ -7,7 +7,6 @@
         <CCardBody v-if="testDetails">
           <p><strong>Test ID:</strong> {{ testDetails.id }}</p>
           <p><strong>Title:</strong> {{ testDetails.title }}</p>
-          <p><strong>Security:</strong> {{ testDetails.security }}</p>
           <p><strong>User Name:</strong> {{ testDetails.user_name }}</p>
           <p><strong>State:</strong> {{ testDetails.test_state }}</p>
         </CCardBody>
@@ -42,7 +41,7 @@
       <CCard>
         <CCardHeader>Test Result</CCardHeader>
         <CCardBody>
-          <p><strong>Score:</strong> Coming soon...</p>
+          <p><strong>Score:</strong> {{ testDetails.security }}</p>
           <p><strong>Feedback:</strong> Coming soon...</p>
         </CCardBody>
       </CCard>
