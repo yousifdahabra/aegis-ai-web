@@ -134,6 +134,19 @@ export default {
       questions.value[questionIndex].options.splice(optionIndex, 1);
     };
 
+    const handleQuestionTypeChange = (index) => {
+      const question = questions.value[index];
+      if (question.type === "2" || question.type === "3") {
+        if (!Array.isArray(question.options)) {
+          question.options = [];
+        }
+      } else {
+        question.options = [];
+      }
+    };
+
+
+
     return {
       testTitle,
       questions,
@@ -144,6 +157,7 @@ export default {
       removeQuestion,
       addOption,
       removeOption,
+      handleQuestionTypeChange,
     };
   },
 };
