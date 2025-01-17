@@ -66,4 +66,5 @@ export const useUsersStore = defineStore('users', {
       }
     },
   },
+  persist: true,
 });
