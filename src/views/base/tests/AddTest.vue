@@ -1,6 +1,25 @@
 <template>
   <div>
     <h1>Add Test</h1>
+    <CAlert
+      v-if="successMessage"
+      color="success"
+      dismissible
+      @close="successMessage = null"
+      class="mb-4"
+    >
+      {{ successMessage }}
+    </CAlert>
+    <CAlert
+      v-if="errorMessage"
+      color="danger"
+      dismissible
+      @close="errorMessage = null"
+      class="mb-4"
+    >
+      {{ errorMessage }}
+    </CAlert>
+
     <div class="mb-4">
       <CFormInput
         v-model="testTitle"
