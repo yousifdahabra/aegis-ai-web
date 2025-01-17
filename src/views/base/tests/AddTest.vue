@@ -85,15 +85,17 @@
 </template>
 
 <script>
+import { useTestsStore } from "@/stores/tests";
 import { ref } from "vue";
 
 export default {
   name: "AddTest",
   props: ["id"],
     mounted() {
+    console.log("User ID:", this.id);
   },
 
-  setup() {
+  setup(props) {
     const testTitle = ref("");
     const questions = ref([
       {
@@ -110,6 +112,27 @@ export default {
     ];
     const successMessage = ref(null);
     const errorMessage = ref(null);
+    const testsStore = useTestsStore();
+
+    const addQuestion = () => {
+      questions.value.push({
+        text: "",
+        type: "1",
+        options: [],
+      });
+    };
+
+    const removeQuestion = (index) => {
+      questions.value.splice(index, 1);
+    };
+
+    const addOption = (questionIndex) => {
+      questions.value[questionIndex].options.push("");
+    };
+
+    const removeOption = (questionIndex, optionIndex) => {
+      questions.value[questionIndex].options.splice(optionIndex, 1);
+    };
 
     return {
       testTitle,
@@ -117,6 +140,10 @@ export default {
       questionTypes,
       successMessage,
       errorMessage,
+      addQuestion,
+      removeQuestion,
+      addOption,
+      removeOption,
     };
   },
 };
