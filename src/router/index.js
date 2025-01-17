@@ -53,6 +53,13 @@ const routes = [
         component: () => import('@/views/base/tests/TestsList.vue'),
         props: true,
       },
+      {
+        path: '/base/tests/details/:testId',
+        name: 'TestDetails',
+        component: () => import('@/views/base/tests/TestDetails.vue'),
+        props: true,
+      },
+
     ],
   },
 
