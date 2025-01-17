@@ -68,4 +68,5 @@ export const useTestsStore = defineStore('tests', {
       }
     },
   },
+  persist: true,
 });
