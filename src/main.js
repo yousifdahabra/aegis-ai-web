@@ -10,9 +10,13 @@ import { iconsSet as icons } from '@/assets/icons'
 import DocsComponents from '@/components/DocsComponents'
 import DocsExample from '@/components/DocsExample'
 import DocsIcons from '@/components/DocsIcons'
+import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
 
 const app = createApp(App)
-app.use(createPinia())
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedState);
+
+app.use(pinia)
 app.use(router)
 app.use(CoreuiVue)
 app.provide('icons', icons)
