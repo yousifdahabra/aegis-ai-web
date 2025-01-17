@@ -43,18 +43,27 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
 import { onMounted } from 'vue';
 import { useRequestsStore } from '@/stores/requests';
 
 export default {
   name: 'ViewRequests',
   setup() {
+    const router = useRouter();
     const requestsStore = useRequestsStore();
 
     const fetchRequests = async () => {
       await requestsStore.fetchRequests();
     };
 
+    const viewTestList = (id) => {
+      router.push({ name: 'TestsList', params: { id } });
+    };
+
+    const redirectToAddTest = (userId) => {
+      router.push({ name: 'AddTest', params: { userId } }); // Assuming AddTest route will be added.
+    };
 
     onMounted(() => {
       fetchRequests();
@@ -65,6 +74,8 @@ export default {
       loading: requestsStore.loading,
       errorMessage: requestsStore.errorMessage,
       successMessage: requestsStore.successMessage,
+      viewTestList,
+      redirectToAddTest,
     };
   },
 };
