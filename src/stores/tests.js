@@ -52,7 +52,7 @@ export const useTestsStore = defineStore('tests', {
 
         if (response.status) {
           this.testDetails = Object.values(response.data.test);
-          this.questions = Object.values(response.data.question) || [];
+          this.questions = Object.values(response.data.question);
           this.successMessage = response.message;
         } else {
           this.testDetails = null;
