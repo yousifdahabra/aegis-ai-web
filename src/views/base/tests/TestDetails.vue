@@ -39,6 +39,13 @@
         </CCardBody>
       </CCard>
 
+      <CCard>
+        <CCardHeader>Test Result</CCardHeader>
+        <CCardBody>
+          <p><strong>Score:</strong> Coming soon...</p>
+          <p><strong>Feedback:</strong> Coming soon...</p>
+        </CCardBody>
+      </CCard>
     </CContainer>
   </div>
 </template>
@@ -58,6 +65,7 @@ export default {
 
     onMounted(async () => {
       await testsStore.fetchTestDetails(testId);
+      await console.log()
     });
 
     return {
