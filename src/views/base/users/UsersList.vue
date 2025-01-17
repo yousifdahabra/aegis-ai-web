@@ -18,7 +18,7 @@
         <CTableRow v-for="user in users" :key="user.id">
           <CTableDataCell>{{ user.name }}</CTableDataCell>
           <CTableDataCell>{{ user.email }}</CTableDataCell>
-          <CTableDataCell>{{ user.user_role_id }}</CTableDataCell>
+          <CTableDataCell>{{ user.user_role_id == 2 ? 'Expert' : 'User' }}</CTableDataCell>
           <CTableDataCell>{{ user.blocked ? 'Block' : 'Active' }}</CTableDataCell>
           <CTableDataCell>
             <CButton color="info" size="sm" @click="openEditModal(user)">Edit</CButton>

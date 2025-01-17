@@ -15,11 +15,6 @@ export default [
     items: [
       {
         component: 'CNavItem',
-        name: 'Add User',
-        to: '/base/users/add',
-      },
-      {
-        component: 'CNavItem',
         name: 'List Users',
         to: '/base/users/list',
       },

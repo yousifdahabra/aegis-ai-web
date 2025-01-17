@@ -24,7 +24,6 @@ export const useTestsStore = defineStore('tests', {
 
         if (response.status) {
           this.tests = Object.values(response.data);
-          this.successMessage = response.message;
         } else {
           this.tests = [];
           this.errorMessage = response.message;
