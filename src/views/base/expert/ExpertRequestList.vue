@@ -60,6 +60,9 @@ export default {
       await expertRequestsStore.fetchExpertRequests();
     };
 
+    const downloadDocument = async (filePath) => {
+      await expertRequestsStore.downloadFile(filePath);
+    };
 
     onMounted(() => {
       fetchExpertRequests();
@@ -70,6 +73,7 @@ export default {
       loading: expertRequestsStore.loading,
       errorMessage: expertRequestsStore.errorMessage,
       successMessage: expertRequestsStore.successMessage,
+      downloadDocument,
     };
   },
 };
