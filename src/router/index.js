@@ -48,6 +48,12 @@ const routes = [
     component: DefaultLayout,
     children: [
       {
+        path: 'add/:id',
+        name: 'AddTest',
+        component: () => import('@/views/base/tests/AddTest.vue'),
+        props: true,
+      },
+        {
         path: '',
         name: 'TestsList',
         component: () => import('@/views/base/tests/TestsList.vue'),
