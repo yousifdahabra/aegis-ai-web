@@ -43,11 +43,15 @@
       <CButton color="danger" size="sm" class="mt-2" @click="removeQuestion(index)">Remove Question</CButton>
       <hr />
     </div>
-
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <CButton color="success" size="sm" @click="addQuestion">Add Question</CButton>
+      <CButton color="primary" size="sm" @click="submitTest">Submit Test</CButton>
+    </div>
   </div>
 </template>
 
 <script>
+
 </script>
 
 <style scoped>
