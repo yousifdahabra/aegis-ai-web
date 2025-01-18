@@ -69,6 +69,15 @@
                     @change="handleFileUpload"
                   />
                 </div>
+                <CButton color="primary" class="w-100 mb-3" type="submit">
+                  Sign Up
+                </CButton>
+                <p class="text-center">
+                  Already have an account? <a href="#" class="login-link">Login</a>
+                </p>
+                <div v-if="errorMessage" class="text-danger mt-3 text-center">
+                  {{ errorMessage }}
+                </div>
               </CForm>
             </CCardBody>
           </CCard>
