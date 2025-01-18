@@ -4,9 +4,6 @@
     <div v-if="errorMessage">
       <CAlert color="danger" class="mb-3">{{ errorMessage }}</CAlert>
     </div>
-    <div v-if="successMessage">
-      <CAlert color="success" class="mb-3">{{ successMessage }}</CAlert>
-    </div>
     <div v-if="loading" class="text-center mb-3">Loading...</div>
 
     <CTable striped hover v-if="!loading && expertRequests.length">

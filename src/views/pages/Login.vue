@@ -1,50 +1,17 @@
 <template>
-  <div class="wrapper min-vh-100 d-flex flex-row align-items-center">
-    <CContainer>
-      <CRow class="justify-content-center">
-        <CCol :md="8">
-          <CCardGroup>
-            <CCard class="p-4">
-              <CCardBody>
-                <CForm @submit.prevent="handleLogin">
-                  <h1>Login</h1>
-                  <p class="text-body-secondary">Sign In to your account</p>
-                  <CInputGroup class="mb-3">
-                    <CInputGroupText>
-                      <CIcon icon="cil-user" />
-                    </CInputGroupText>
-                    <CFormInput
-                      v-model="email"
-                      placeholder="Email"
-                      type="email"
-                      autocomplete="email"
-                    />
-                  </CInputGroup>
-                  <CInputGroup class="mb-4">
-                    <CInputGroupText>
-                      <CIcon icon="cil-lock-locked" />
-                    </CInputGroupText>
-                    <CFormInput
-                      v-model="password"
-                      type="password"
-                      placeholder="Password"
-                      autocomplete="current-password"
-                    />
-                  </CInputGroup>
-                  <CRow>
-                    <CCol :xs="6">
-                      <CButton color="primary" class="px-4" type="submit">
-                        Login
-                      </CButton>
-                    </CCol>
-                  </CRow>
-                  <div v-if="errorMessage" class="text-danger mt-2">
-                    {{ errorMessage }}
-                  </div>
-                </CForm>
-              </CCardBody>
-            </CCard>
-          </CCardGroup>
+  <div class="wrapper d-flex min-vh-100">
+    <CContainer class="d-flex justify-content-center align-items-center">
+      <CRow class="login-container">
+        <CCol md="6" class="d-flex align-items-center justify-content-center">
+          <CCard class="p-4 w-100">
+            <CCardBody>
+              <CForm @submit.prevent="handleLogin">
+                <h1 class="main-title mb-3">Welcome Back!</h1>
+                <p class="sub-title mb-4">Enter your credentials to log in to your account</p>
+
+              </CForm>
+            </CCardBody>
+          </CCard>
         </CCol>
       </CRow>
     </CContainer>
@@ -71,10 +38,10 @@ export default {
 
       if (response) {
         const role = localStorage.getItem('role');
-         if (role === 'user') {
+        if (role === 'user') {
           this.$router.push('/home');
-        }else{
-          this.$router.push('/dashboard');
+        } else {
+          this.$router.push('/base/users/list');
         }
       } else {
         this.errorMessage = response.message || 'Login failed.';
@@ -83,3 +50,4 @@ export default {
   },
 };
 </script>
+
