@@ -1,8 +1,12 @@
 <template>
   <div>
     <h1>View Requests</h1>
-    <div v-if="errorMessage" class="text-danger mb-3">{{ errorMessage }}</div>
-    <div v-if="successMessage" class="text-success mb-3">{{ successMessage }}</div>
+    <div v-if="errorMessage">
+      <CAlert color="danger" class="mb-3">{{ errorMessage }}</CAlert>
+    </div>
+    <div v-if="successMessage">
+      <CAlert color="success" class="mb-3">{{ successMessage }}</CAlert>
+    </div>
     <div v-if="loading" class="text-center mb-3">Loading...</div>
     <CTable striped hover v-if="!loading && requests.length">
       <CTableHead>
@@ -20,11 +24,6 @@
           <CTableDataCell>{{ request.about_user }}</CTableDataCell>
           <CTableDataCell>{{ request.user_note }}</CTableDataCell>
           <CTableDataCell>{{ request.links }}</CTableDataCell>
-          <!-- <CTableDataCell>
-            <a v-for="(link, index) in request.links" :key="index" :href="link" target="_blank">
-              Link {{ index + 1 }}
-            </a>
-          </CTableDataCell> -->
           <CTableDataCell>
             <CButton color="info" size="sm" @click="viewTestList(request.user.id)">
               View Test List
