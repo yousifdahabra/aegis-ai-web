@@ -2,6 +2,7 @@
   <div class="wrapper d-flex min-vh-100">
     <CContainer class="d-flex justify-content-center align-items-center">
       <CRow class="signup-container">
+        <!-- Left Side: Signup Form -->
         <CCol md="6" class="d-flex align-items-center justify-content-center">
           <CCard class="p-4 w-100">
             <CCardBody>
@@ -10,7 +11,7 @@
                 <p class="sub-title mb-4">Fill in your details to create a new account</p>
                 <CInputGroup class="mb-3">
                   <CInputGroupText>
-                    <CIcon :icon="icons.cilUser" />
+                    <CIcon icon="cil-user" />
                   </CInputGroupText>
                   <CFormInput
                     v-model="name"
@@ -21,7 +22,7 @@
                 </CInputGroup>
                 <CInputGroup class="mb-3">
                   <CInputGroupText>
-                    <CIcon :icon="icons.cilEnvelopeClosed" />
+                    <CIcon icon="cil-envelope-closed" />
                   </CInputGroupText>
                   <CFormInput
                     v-model="email"
@@ -32,7 +33,7 @@
                 </CInputGroup>
                 <CInputGroup class="mb-3">
                   <CInputGroupText>
-                    <CIcon :icon="icons.cilPhone" />
+                    <CIcon icon="cil-phone" />
                   </CInputGroupText>
                   <CFormInput
                     v-model="phone_number"
@@ -43,7 +44,7 @@
                 </CInputGroup>
                 <CInputGroup class="mb-3">
                   <CInputGroupText>
-                    <CIcon :icon="icons.cilExternalLink" />
+                    <CIcon :icon="cilExternalLink" />
                   </CInputGroupText>
                   <CFormInput
                     v-model="links"
@@ -53,7 +54,7 @@
                 </CInputGroup>
                 <CInputGroup class="mb-3">
                   <CInputGroupText>
-                    <CIcon :icon="icons.cilInfo" />
+                    <CIcon icon="cil-info" />
                   </CInputGroupText>
                   <CFormTextarea
                     v-model="extra_informations"
@@ -82,6 +83,7 @@
             </CCardBody>
           </CCard>
         </CCol>
+        <!-- Right Side: Illustration -->
         <CCol md="6" class="d-none d-md-flex align-items-center justify-content-center">
           <img
             src="https://cdn.mos.cms.futurecdn.net/SyDThccFHHMeSP2gbK8uHG-1024-80.jpg.webp"
@@ -97,10 +99,12 @@
 <script>
 import { ref } from "vue";
 import { CIcon } from "@coreui/icons-vue";
+import * as icon from '@coreui/icons';
 
 export default {
   components: {
     CIcon,
+    icon,
   },
   setup() {
     const name = ref("");
@@ -111,7 +115,20 @@ export default {
     const documents = ref([]);
     const errorMessage = ref("");
 
+    const handleFileUpload = (event) => {
+      documents.value = Array.from(event.target.files);
+    };
 
+    const handleSignup = () => {
+      console.log({
+        name: name.value,
+        email: email.value,
+        phone_number: phone_number.value,
+        links: links.value,
+        extra_informations: extra_informations.value,
+        documents: documents.value,
+      });
+    };
 
     return {
       name,
@@ -121,6 +138,8 @@ export default {
       extra_informations,
       documents,
       errorMessage,
+      handleFileUpload,
+      handleSignup,
     };
   },
 };
