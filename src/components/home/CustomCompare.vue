@@ -1,275 +1,145 @@
 <template>
-
-<section class="timeline-section">
+  <section class="compare-tests-section">
     <div class="container">
-      <h2 class="section-title">How the Static Test Works</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-content request">
-            <i class="fa fa-list-alt icon"></i>
-            <p class="timeline-text">
-              <strong>User:</strong> Start the test.
-            </p>
+      <h2 class="section-title">Why Choose Us</h2>
+      <div class="comparison-grid">
+        <!-- Normal Test -->
+        <div class="test-card static-test">
+          <div class="test-header">
+            <h3>Normal Test </h3>
           </div>
-        </div>
-                <div class="timeline-item">
-          <div class="timeline-content response">
-            <i class="fa fa-user-edit icon"></i>
-            <p class="timeline-text">
-              <strong>Receive</strong> user receive test with all question.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content request">
-            <i class="fa fa-user-edit icon"></i>
-            <p class="timeline-text">
-              <strong>Receive</strong> Answer the first question.
-            </p>
+          <div class="test-content">
+            <div class="test-feature">
+              <i class="fa fa-list-alt icon"></i>
+              <p><strong>All Questions Upfront:</strong> Fixed set of questions delivered at once.</p>
+            </div>
+            <div class="test-feature">
+              <i class="fa fa-arrow-right icon"></i>
+              <p><strong>Fixed Sequence:</strong> Answer questions in a strict order.</p>
+            </div>
+            <div class="test-feature">
+              <i class="fa fa-user-edit icon"></i>
+              <p><strong>Generic Feedback:</strong> Limited insights based on static results.</p>
+            </div>
           </div>
         </div>
 
-
-        <div class="timeline-item">
-          <div class="timeline-content request">
-            <i class="fa fa-arrow-right icon"></i>
-            <p class="timeline-text">
-              <strong>Step 3:</strong> Proceed to the next question in a fixed order.
-            </p>
+        <!-- Our Test -->
+        <div class="test-card dynamic-test">
+          <div class="test-header">
+            <h3>Our Test</h3>
           </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content request">
-            <i class="fa fa-user-edit icon"></i>
-            <p class="timeline-text">
-              <strong>Step 4:</strong> Continue answering questions as they appear.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content request">
-            <i class="fa fa-chart-line icon"></i>
-            <p class="timeline-text">
-              <strong>Step 5:</strong> Complete the test and receive results.
-            </p>
+          <div class="test-content">
+            <div class="test-feature">
+              <i class="fa fa-comment-dots icon"></i>
+              <p><strong>Adaptive Questions:</strong> Tailored questions evolve based on your responses.</p>
+            </div>
+            <div class="test-feature">
+              <i class="fa fa-sync-alt icon"></i>
+              <p><strong>Personalized Flow:</strong> Questions adapt to your needs and answers.</p>
+            </div>
+            <div class="test-feature">
+              <i class="fa fa-chart-line icon"></i>
+              <p><strong>Actionable Insights:</strong> Detailed, personalized feedback and recommendations.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <section class="timeline-section">
-
-    <div class="container">
-      <h2 class="section-title">How the dynamic Test Works</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-content response">
-            <i class="fa fa-user-edit icon"></i>
-            <p class="timeline-text">
-              <strong>User Start:</strong> Start Test.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content request">
-            <i class="fa fa-comment-dots icon"></i>
-            <p class="timeline-text">
-              <strong>AI Ask:</strong> First question .
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content response">
-            <i class="fa fa-user-edit icon"></i>
-            <p class="timeline-text">
-              <strong>User Answer:</strong> You answer the question.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content request">
-            <i class="fa fa-sync-alt icon"></i>
-            <p class="timeline-text">
-              <strong>AI Ask:</strong> Next question based on your previous answer.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content response">
-            <i class="fa fa-user-edit icon"></i>
-            <p class="timeline-text">
-              <strong>User Answer:</strong> You answer the next question.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content request">
-            <i class="fa fa-chart-line icon"></i>
-            <p class="timeline-text">
-              <strong>AI Result:</strong> Test completed. Send detailed analysis and feedback.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content response">
-            <i class="fa fa-user-edit icon"></i>
-            <p class="timeline-text">
-              <strong>User:</strong> You will receive answers.
-            </p>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-  </section>
-
-
 </template>
-
-
 
 <script>
 export default {
-  name: "CustomCompare",
+  name: "CompareTests",
 };
 </script>
-<style scoped>
-/* Timeline Section */
-.timeline-section {
-  padding: 60px 20px;
+
+<style  >
+
+.compare-tests-section {
+  padding: 80px 20px;
   background: linear-gradient(135deg, #f4f9fc, #e6f7ff);
+  text-align: center;
 }
 
 .section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 40px;
-  color: #16354d;
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+  color: var(--main-title-color);
+  font-weight: bold;
 }
 
-.timeline {
-  position: relative;
-  margin: 0 auto;
-  padding: 20px 0;
-  max-width: 800px;
+.comparison-grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
 }
 
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 4px;
-  height: 100%;
-  background: #289dd2;
-  transform: translateX(-50%);
-}
-
-.timeline-item {
-  position: relative;
-  width: 100%;
-  margin: 20px 0;
-}
-
-.timeline-content {
-  position: relative;
-  width: 45%;
+.test-card {
+  flex: 1;
+  max-width: 50%;
   background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.timeline-content.request {
-  margin-left: 55%;
+.test-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.timeline-content.response {
-  margin-right: 55%;
+.test-header {
+  background: var(--button-background-color);
+  padding: 20px;
+  text-align: center;
+  color: var(--button-text-color);
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: var(--cui-btn-font-family);
 }
 
-.timeline-item::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #289dd2;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+.static-test .test-header {
+  background: rgba(220, 53, 69, 0.9); /* Static Test Red */
+}
+
+.dynamic-test .test-header {
+  background: var(--button-background-color); /* Dynamic Test Blue */
+}
+
+.test-content {
+  padding: 30px 20px;
+}
+
+.test-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.test-feature p {
+  font-size: 1rem;
+  color: var(--sub-title-color);
+  line-height: 1.6;
 }
 
 .icon {
   font-size: 2rem;
-  color: #289dd2;
-  margin-bottom: 10px;
-}
-
-.timeline-text {
-  font-size: 1rem;
-  color: #555;
+  color: var(--link-text-color);
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
-  .timeline {
-    padding: 10px 0;
+  .comparison-grid {
+    flex-direction: column;
+    gap: 20px;
   }
 
-  .timeline-content {
-    width: 80%;
-    margin: 10px auto;
-  }
-
-  .timeline-content.request,
-  .timeline-content.response {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .timeline::before {
-    left: 10px;
-  }
-
-  .timeline-item::after {
-    left: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-  }
-
-  .timeline-content {
-    padding: 15px;
-    width: 90%;
-    font-size: 0.9rem;
-  }
-
-  .icon {
-    font-size: 1.5rem;
-  }
-
-  .timeline-text {
-    font-size: 0.9rem;
+  .test-card {
+    max-width: 100%;
   }
 }
 </style>
