@@ -8,6 +8,30 @@ export const useAuthStore = defineStore('auth', {
     role: localStorage.getItem('role') || '',
   }),
   actions: {
+    async register(payload) {
+      try {
+
+        const response = await requestAPI({
+          route: 'expert_register',
+          method: 'POST',
+          body: payload,
+        });
+
+        if (response.success) {
+          this.successMessage = 'Account created successfully!';
+          return { success: true };
+        } else {
+          this.errorMessage = response.message || 'Registration failed.';
+          return { success: false, message: this.errorMessage };
+        }
+      } catch (error) {
+        this.errorMessage = 'An error occurred during registration.';
+        return { success: false, message: this.errorMessage };
+      } finally {
+        this.loading = false;
+      }
+    },
+
     async login(credentials) {
       try {
         const response = await requestAPI({
@@ -45,6 +69,8 @@ export const useAuthStore = defineStore('auth', {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
     },
+
+
   },
   getters: {
     isAuthenticated: (state) => !!state.token,
