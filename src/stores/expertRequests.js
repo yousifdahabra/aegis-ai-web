@@ -95,6 +95,33 @@ export const useExpertRequestsStore = defineStore("expertRequests", {
       }
     },
 
+    async rejectRequest(requestId) {
+      try {
+
+        this.loading = true;
+        const response = await requestAPI({
+          route: `experts/reject-request/${requestId}`,
+          method: "GET",
+          header: "application/json",
+        });
+
+        if (response.status) {
+          console.log('rejectRequest')
+          console.log(response)
+
+          this.successMessage = "Request rejected successfully!";
+          return { success: true };
+        } else {
+          this.errorMessage = response.message || "Failed to reject request.";
+          return { success: false };
+        }
+      } catch (error) {
+        this.errorMessage = "An error occurred while rejecting the request.";
+        return { success: false };
+      } finally {
+        this.loading = false;
+      }
+    },
   },
   persist: true,
 });
