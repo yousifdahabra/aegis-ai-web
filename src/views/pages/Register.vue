@@ -9,6 +9,13 @@
             </CCardBody>
           </CCard>
         </CCol>
+        <CCol md="6" class="d-none d-md-flex align-items-center justify-content-center">
+          <img
+            src="https://cdn.mos.cms.futurecdn.net/SyDThccFHHMeSP2gbK8uHG-1024-80.jpg.webp"
+            alt="Signup Illustration"
+            class="img-fluid signup-image"
+          />
+        </CCol>
       </CRow>
     </CContainer>
   </div>
