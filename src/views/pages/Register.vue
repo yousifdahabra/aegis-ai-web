@@ -95,6 +95,35 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import { CIcon } from "@coreui/icons-vue";
+
+export default {
+  components: {
+    CIcon,
+  },
+  setup() {
+    const name = ref("");
+    const email = ref("");
+    const phone_number = ref("");
+    const links = ref("");
+    const extra_informations = ref("");
+    const documents = ref([]);
+    const errorMessage = ref("");
+
+
+
+    return {
+      name,
+      email,
+      phone_number,
+      links,
+      extra_informations,
+      documents,
+      errorMessage,
+    };
+  },
+};
 </script>
 
 <style scoped>
