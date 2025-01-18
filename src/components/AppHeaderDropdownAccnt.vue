@@ -1,5 +1,12 @@
 <script setup>
+import { useRouter } from 'vue-router'
 import avatar from '@/assets/images/avatars/8.jpg'
+
+const router = useRouter()
+
+const goToProfile = () => {
+  router.push({ name: 'Profile' })
+}
 </script>
 
 <template>
@@ -14,11 +21,13 @@ import avatar from '@/assets/images/avatars/8.jpg'
       >
         Account
       </CDropdownHeader>
-      <CDropdownItem>
-        <CIcon icon="cil-bell" /> Prfoile
+      <CDropdownItem @click="goToProfile">
+        <CIcon icon="cil-user" /> Profile
       </CDropdownItem>
       <CDropdownDivider />
-      <CDropdownItem> <CIcon icon="cil-lock-locked" /> Logout </CDropdownItem>
+      <CDropdownItem>
+        <CIcon icon="cil-lock-locked" /> Logout
+      </CDropdownItem>
     </CDropdownMenu>
   </CDropdown>
 </template>
