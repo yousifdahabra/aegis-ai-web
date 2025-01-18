@@ -19,6 +19,28 @@
                     required
                   />
                 </CInputGroup>
+                <CInputGroup class="mb-3">
+                  <CInputGroupText>
+                    <CIcon :icon="icons.cilEnvelopeClosed" />
+                  </CInputGroupText>
+                  <CFormInput
+                    v-model="email"
+                    placeholder="Email Address"
+                    type="email"
+                    required
+                  />
+                </CInputGroup>
+                <CInputGroup class="mb-3">
+                  <CInputGroupText>
+                    <CIcon :icon="icons.cilPhone" />
+                  </CInputGroupText>
+                  <CFormInput
+                    v-model="phone_number"
+                    placeholder="Phone Number"
+                    type="text"
+                    required
+                  />
+                </CInputGroup>
               </CForm>
             </CCardBody>
           </CCard>
