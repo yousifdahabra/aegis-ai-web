@@ -1,8 +1,12 @@
 <template>
   <div class="profile">
     <h1>Edit Profile</h1>
-    <div v-if="formErrorMessage" class="text-danger mb-3">{{ formErrorMessage }}</div>
-    <div v-if="formSuccessMessage" class="text-success mb-3">{{ formSuccessMessage }}</div>
+    <div v-if="formErrorMessage">
+      <CAlert color="danger" class="mb-3">{{ formErrorMessage }}</CAlert>
+    </div>
+    <div v-if="formSuccessMessage">
+      <CAlert color="success" class="mb-3">{{ formSuccessMessage }}</CAlert>
+    </div>
     <CForm @submit.prevent="saveChanges">
       <CFormInput
         v-model="localUser.name"
@@ -50,7 +54,7 @@ export default {
     const formErrorMessage = ref(null);
 
     onMounted(() => {
-      const storedUser = (localStorage.getItem('user'));
+      const storedUser = localStorage.getItem('user');
       if (storedUser) {
         const user = JSON.parse(storedUser);
         localUser.id = user.id;
