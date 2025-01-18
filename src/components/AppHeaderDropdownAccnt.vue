@@ -7,6 +7,13 @@ const router = useRouter()
 const goToProfile = () => {
   router.push({ name: 'Profile' })
 }
+
+const logout = () => {
+  localStorage.removeItem('token')
+  localStorage.removeItem('user')
+  localStorage.removeItem('role')
+  router.push({ name: 'Login' })
+}
 </script>
 
 <template>
@@ -25,7 +32,7 @@ const goToProfile = () => {
         <CIcon icon="cil-user" /> Profile
       </CDropdownItem>
       <CDropdownDivider />
-      <CDropdownItem>
+      <CDropdownItem @click="logout">
         <CIcon icon="cil-lock-locked" /> Logout
       </CDropdownItem>
     </CDropdownMenu>
