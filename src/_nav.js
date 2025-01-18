@@ -4,7 +4,7 @@ export default [
     name: 'Dashboard',
     to: '/dashboard',
     icon: 'cil-speedometer',
-    role: 'all',
+    role: 'admin',
   },
   {
     component: 'CNavGroup',
