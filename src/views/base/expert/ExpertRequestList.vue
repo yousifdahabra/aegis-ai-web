@@ -4,6 +4,9 @@
     <div v-if="errorMessage">
       <CAlert color="danger" class="mb-3">{{ errorMessage }}</CAlert>
     </div>
+    <div v-if="successMessage">
+      <CAlert color="success" class="mb-3">{{ successMessage }}</CAlert>
+    </div>
     <div v-if="loading" class="text-center mb-3">Loading...</div>
 
     <CTable striped hover v-if="!loading && expertRequests.length">
@@ -13,6 +16,7 @@
           <CTableHeaderCell>Email</CTableHeaderCell>
           <CTableHeaderCell>Extra Information</CTableHeaderCell>
           <CTableHeaderCell>Files</CTableHeaderCell>
+          <CTableHeaderCell>Actions</CTableHeaderCell>
         </CTableRow>
       </CTableHead>
       <CTableBody>
@@ -37,6 +41,23 @@
               </div>
             </div>
             <div v-else>No files available</div>
+          </CTableDataCell>
+          <CTableDataCell>
+            <CButton
+              color="success"
+              size="sm"
+              class="me-2"
+              @click="acceptRequest(request.id)"
+            >
+              Accept
+            </CButton>
+            <CButton
+              color="danger"
+              size="sm"
+              @click="rejectRequest(request.id)"
+            >
+              Reject
+            </CButton>
           </CTableDataCell>
         </CTableRow>
       </CTableBody>
