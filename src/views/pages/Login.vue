@@ -32,7 +32,15 @@
                     required
                   />
                 </CInputGroup>
-
+                <CButton color="primary" class="w-100 mb-3" type="submit">
+                  Login
+                </CButton>
+                <p class="text-center">
+                  Don't have an account? <a href="#" class="sign-up-link">Sign Up</a>
+                </p>
+                <div v-if="errorMessage" class="text-danger mt-3 text-center">
+                  {{ errorMessage }}
+                </div>
               </CForm>
             </CCardBody>
           </CCard>
