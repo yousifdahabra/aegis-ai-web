@@ -119,22 +119,23 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const user = JSON.parse(localStorage.getItem('user'));
   const role = localStorage.getItem('role');
-  console.log(role)
+
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!user) {
       return next({ name: 'Login' });
     }
 
-    if (to.matched.some(record => record.meta.expertOnly) && role !== 'expert') {
-      return next({ name: 'Dashboard' });
+    if (to.matched.some(record => record.meta.expertOnly || record.meta.adminOnly)) {
+      if (role !== 'admin') {
+        return next({ name: 'Dashboard' });
+      }
     }
   }
 
   if (to.name === 'Login' && user) {
-    return next({ name: role === 'expert' ? 'ExpertRequestList' : 'Dashboard' });
+    return next({ name: role === 'expert' ? 'Dashboard' : 'Dashboard' });
   }
 
   next();
 });
-
 export default router;
