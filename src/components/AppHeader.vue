@@ -29,30 +29,21 @@ onMounted(() => {
       </CHeaderToggler>
       <CHeaderNav class="d-none d-md-flex">
         <CNavItem>
-          <CNavLink href="/dashboard"> Dashboard </CNavLink>
-        </CNavItem>
-        <CNavItem>
-          <CNavLink href="#">Users</CNavLink>
-        </CNavItem>
-        <CNavItem>
-          <CNavLink href="#">Settings</CNavLink>
+          <CNavLink href="/"> Website </CNavLink>
         </CNavItem>
       </CHeaderNav>
       <CHeaderNav class="ms-auto">
         <CNavItem>
           <CNavLink href="#">
-            <CIcon icon="cil-bell" size="lg" />
-          </CNavLink>
+           </CNavLink>
         </CNavItem>
         <CNavItem>
           <CNavLink href="#">
-            <CIcon icon="cil-list" size="lg" />
-          </CNavLink>
+           </CNavLink>
         </CNavItem>
         <CNavItem>
           <CNavLink href="#">
-            <CIcon icon="cil-envelope-open" size="lg" />
-          </CNavLink>
+           </CNavLink>
         </CNavItem>
       </CHeaderNav>
       <CHeaderNav>
