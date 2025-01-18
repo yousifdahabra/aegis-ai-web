@@ -14,12 +14,6 @@ const routes = [
     name: 'Login',
     component: () => import('@/views/pages/Login.vue'),
   },
-  // Login route
-  {
-    path: '/pages/login',
-    name: 'Login',
-    component: () => import('@/views/pages/Login.vue'),
-  },
   // Dashboard
   {
     path: '/dashboard',
@@ -90,6 +84,18 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/base/profile',
+    component: DefaultLayout,
+    children: [
+      {
+        path: 'view',
+        name: 'Profile',
+        component: () => import('@/views/base/Profile.vue'),
+      },
+    ],
+  },
+
 
 
 ];
