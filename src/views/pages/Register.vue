@@ -2,10 +2,15 @@
   <div class="wrapper d-flex min-vh-100">
     <CContainer class="d-flex justify-content-center align-items-center">
       <CRow class="signup-container">
-        <!-- Left Side: Signup Form -->
         <CCol md="6" class="d-flex align-items-center justify-content-center">
           <CCard class="p-4 w-100">
             <CCardBody>
+              <div v-if="successMessage" class="mb-3">
+                <CAlert color="success">{{ successMessage }}</CAlert>
+              </div>
+              <div v-if="errorMessage" class="mb-3">
+                <CAlert color="danger">{{ errorMessage }}</CAlert>
+              </div>
               <CForm @submit.prevent="handleSignup">
                 <h1 class="main-title mb-3">Create an Account</h1>
                 <p class="sub-title mb-4">Fill in your details to create a new account</p>
@@ -87,12 +92,6 @@
                 <p class="text-center">
                   Already have an account? <a href="#" class="login-link">Login</a>
                 </p>
-                <div v-if="errorMessage" class="text-danger mt-3 text-center">
-                  {{ errorMessage }}
-                </div>
-                <div v-if="successMessage" class="text-success mt-3 text-center">
-                  {{ successMessage }}
-                </div>
               </CForm>
             </CCardBody>
           </CCard>
@@ -139,8 +138,6 @@ export default {
       const authStore = useAuthStore();
 
       const formData = new FormData();
-
-      formData.append("birth_year", '');
       formData.append("name", name.value);
       formData.append("email", email.value);
       formData.append("phone_number", phone_number.value);

@@ -20,13 +20,11 @@ export const useExpertRequestsStore = defineStore("expertRequests", {
           header: "application/json",
         });
 
-        console.log("API Response:", response);
-
         if (response.status && Array.isArray(response.data)) {
           this.requests = response.data.map((req) => ({
             ...req,
-            user: req.user || {}, // Ensure user is an object
-            expert_request_documents: req.expert_request_documents || [], // Ensure documents is an array
+            user: req.user || {},
+            expert_request_documents: req.expert_request_documents || [],
           }));
           this.successMessage = "Expert requests fetched successfully!";
         } else {
@@ -34,7 +32,6 @@ export const useExpertRequestsStore = defineStore("expertRequests", {
           this.errorMessage = response.message || "Failed to fetch expert requests.";
         }
       } catch (error) {
-        console.error("Fetch Expert Requests Error:", error);
         this.requests = [];
         this.errorMessage = "An error occurred while fetching expert requests.";
       } finally {
@@ -65,12 +62,39 @@ export const useExpertRequestsStore = defineStore("expertRequests", {
           this.errorMessage = "Failed to download file.";
         }
       } catch (error) {
-        console.error("Download File Error:", error);
         this.errorMessage = "An error occurred while downloading the file.";
       } finally {
         this.loading = false;
       }
     },
+
+    async acceptRequest(requestId) {
+      try {
+        this.loading = true;
+        const response = await requestAPI({
+          route: `experts/accept-request/${requestId}`,
+          method: "GET",
+          header: "application/json",
+        });
+
+        if (response.status) {
+          console.log('acceptRequest')
+          console.log(response)
+
+          this.successMessage = "Request accepted successfully!";
+          return { success: true };
+        } else {
+          this.errorMessage = response.message || "Failed to accept request.";
+          return { success: false };
+        }
+      } catch (error) {
+        this.errorMessage = "An error occurred while accepting the request.";
+        return { success: false };
+      } finally {
+        this.loading = false;
+      }
+    },
+
   },
   persist: true,
 });
