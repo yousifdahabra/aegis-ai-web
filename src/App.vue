@@ -37,8 +37,8 @@ onBeforeMount(() => {
 <style lang="scss">
 // Import Main styles for this application
 @import 'styles/style';
-// We use those styles to show code examples, you should remove them in your application.
-@import 'styles/examples';
+@import 'styles/_custom.scss';
+
 </style>
 
 <style src="./styles/common/flex.css"></style>

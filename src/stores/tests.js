@@ -47,8 +47,6 @@ export const useTestsStore = defineStore('tests', {
           header: 'application/json',
         });
 
-        console.log(response)
-
         if (response.status) {
           this.testDetails = response.data.test;
           this.questions = Object.values(response.data.question);
@@ -66,6 +64,34 @@ export const useTestsStore = defineStore('tests', {
         this.loading = false;
       }
     },
+
+    async addTest(testData) {
+      try {
+        this.loading = true;
+        this.errorMessage = null;
+
+        const response = await requestAPI({
+          route: 'tests/store-full-test',
+          method: 'POST',
+          body: testData,
+          header: 'application/json',
+        });
+
+        if (response.status) {
+          this.successMessage = 'Test added successfully!';
+          return { success: true };
+        } else {
+          this.errorMessage = response.message;
+          return { success: false, message: response.message };
+        }
+      } catch (error) {
+        this.errorMessage = 'Failed to add test. Please try again.';
+        return { success: false, message: 'Failed to add test. Please try again.' };
+      } finally {
+        this.loading = false;
+      }
+    }
+
   },
   persist: true,
 });

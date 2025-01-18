@@ -1,44 +1,44 @@
-import { defineComponent, h, onMounted, ref, resolveComponent } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
+import { defineComponent, h, onMounted, ref, resolveComponent } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
 
-import { cilExternalLink } from '@coreui/icons'
-import { CBadge, CSidebarNav, CNavItem, CNavGroup, CNavTitle } from '@coreui/vue'
-import nav from '@/_nav.js'
+import { cilExternalLink } from '@coreui/icons';
+import { CBadge, CSidebarNav, CNavItem, CNavGroup, CNavTitle } from '@coreui/vue';
+import nav from '@/_nav.js';
 
-import simplebar from 'simplebar-vue'
-import 'simplebar-vue/dist/simplebar.min.css'
+import simplebar from 'simplebar-vue';
+import 'simplebar-vue/dist/simplebar.min.css';
 
 const normalizePath = (path) =>
   decodeURI(path)
     .replace(/#.*$/, '')
-    .replace(/(index)?\.(html)$/, '')
+    .replace(/(index)?\.(html)$/, '');
 
 const isActiveLink = (route, link) => {
   if (link === undefined) {
-    return false
+    return false;
   }
 
   if (route.hash === link) {
-    return true
+    return true;
   }
 
-  const currentPath = normalizePath(route.path)
-  const targetPath = normalizePath(link)
+  const currentPath = normalizePath(route.path);
+  const targetPath = normalizePath(link);
 
-  return currentPath === targetPath
-}
+  return currentPath === targetPath;
+};
 
 const isActiveItem = (route, item) => {
   if (isActiveLink(route, item.to)) {
-    return true
+    return true;
   }
 
   if (item.items) {
-    return item.items.some((child) => isActiveItem(route, child))
+    return item.items.some((child) => isActiveItem(route, child));
   }
 
-  return false
-}
+  return false;
+};
 
 const AppSidebarNav = defineComponent({
   name: 'AppSidebarNav',
@@ -48,12 +48,30 @@ const AppSidebarNav = defineComponent({
     CNavTitle,
   },
   setup() {
-    const route = useRoute()
-    const firstRender = ref(true)
+    const route = useRoute();
+    const firstRender = ref(true);
+
+    const userRole = localStorage.getItem('role') || 'expert';
+
+    const filteredNav = nav.filter((item) => {
+      const checkRole = (role) => {
+        if (!role || role === 'all') return true;
+        return role === userRole;
+      };
+
+      if (!checkRole(item.role)) return false;
+
+      if (item.items) {
+        item.items = item.items.filter((subItem) => checkRole(subItem.role));
+        return item.items.length > 0;
+      }
+
+      return true;
+    });
 
     onMounted(() => {
-      firstRender.value = false
-    })
+      firstRender.value = false;
+    });
 
     const renderItem = (item) => {
       if (item.items) {
@@ -76,7 +94,7 @@ const AppSidebarNav = defineComponent({
             ],
             default: () => item.items.map((child) => renderItem(child)),
           },
-        )
+        );
       }
 
       if (item.href) {
@@ -96,11 +114,12 @@ const AppSidebarNav = defineComponent({
                   })
                 : h('span', { class: 'nav-icon' }, h('span', { class: 'nav-icon-bullet' })),
               item.name,
-              item.external && h(resolveComponent('CIcon'), {
-                class: 'ms-2',
-                name: cilExternalLink,
-                size: 'sm'
-              }),
+              item.external &&
+                h(resolveComponent('CIcon'), {
+                  class: 'ms-2',
+                  name: cilExternalLink,
+                  size: 'sm',
+                }),
               item.badge &&
                 h(
                   CBadge,
@@ -115,7 +134,7 @@ const AppSidebarNav = defineComponent({
                 ),
             ],
           },
-        )
+        );
       }
 
       return item.to
@@ -169,8 +188,8 @@ const AppSidebarNav = defineComponent({
             {
               default: () => item.name,
             },
-          )
-    }
+          );
+    };
 
     return () =>
       h(
@@ -179,10 +198,10 @@ const AppSidebarNav = defineComponent({
           as: simplebar,
         },
         {
-          default: () => nav.map((item) => renderItem(item)),
+          default: () => filteredNav.map((item) => renderItem(item)),
         },
-      )
+      );
   },
-})
+});
 
-export { AppSidebarNav }
+export { AppSidebarNav };

@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Add Test</h1>
-    <!-- Notifications -->
     <CAlert
       v-if="successMessage"
       color="success"
@@ -101,7 +100,7 @@ export default {
     const questions = ref([
       {
         text: "",
-        type: "1", // Default to Input as a String
+        type: "1",
         options: [],
       },
     ]);
@@ -118,7 +117,7 @@ export default {
     const addQuestion = () => {
       questions.value.push({
         text: "",
-        type: "1", // Default to Input as a String
+        type: "1",
         options: [],
       });
     };
