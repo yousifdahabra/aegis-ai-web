@@ -86,6 +86,20 @@ export default {
       await expertRequestsStore.downloadFile(filePath);
     };
 
+    const acceptRequest = async (requestId) => {
+      const result = await expertRequestsStore.acceptRequest(requestId);
+      if (result.success) {
+        await fetchExpertRequests();
+      }
+    };
+
+    const rejectRequest = async (requestId) => {
+      const result = await expertRequestsStore.rejectRequest(requestId);
+      if (result.success) {
+        await fetchExpertRequests();
+      }
+    };
+
     onMounted(() => {
       fetchExpertRequests();
     });
@@ -96,6 +110,8 @@ export default {
       errorMessage: expertRequestsStore.errorMessage,
       successMessage: expertRequestsStore.successMessage,
       downloadDocument,
+      acceptRequest,
+      rejectRequest,
     };
   },
 };
