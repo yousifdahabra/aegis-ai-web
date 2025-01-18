@@ -26,7 +26,6 @@ export const useExpertRequestsStore = defineStore("expertRequests", {
             user: req.user || {},
             expert_request_documents: req.expert_request_documents || [],
           }));
-          this.successMessage = "Expert requests fetched successfully!";
         } else {
           this.requests = [];
           this.errorMessage = response.message || "Failed to fetch expert requests.";

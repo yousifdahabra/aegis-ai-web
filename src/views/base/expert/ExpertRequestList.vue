@@ -4,6 +4,9 @@
     <div v-if="errorMessage">
       <CAlert color="danger" class="mb-3">{{ errorMessage }}</CAlert>
     </div>
+    <div v-if="successMessage">
+      <CAlert color="success" class="mb-3">{{ successMessage }}</CAlert>
+    </div>
     <div v-if="loading" class="text-center mb-3">Loading...</div>
 
     <CTable striped hover v-if="!loading && expertRequests.length">
@@ -86,6 +89,7 @@ export default {
     const acceptRequest = async (requestId) => {
       const result = await expertRequestsStore.acceptRequest(requestId);
       if (result.success) {
+        expertRequestsStore.successMessage = "Request accepted successfully!";
         await fetchExpertRequests();
       }
     };
@@ -93,6 +97,7 @@ export default {
     const rejectRequest = async (requestId) => {
       const result = await expertRequestsStore.rejectRequest(requestId);
       if (result.success) {
+        expertRequestsStore.successMessage = "Request rejected successfully!";
         await fetchExpertRequests();
       }
     };
