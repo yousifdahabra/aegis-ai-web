@@ -5,7 +5,21 @@
         <CCol md="6" class="d-flex align-items-center justify-content-center">
           <CCard class="p-4 w-100">
             <CCardBody>
-
+              <CForm @submit.prevent="handleSignup">
+                <h1 class="main-title mb-3">Create an Account</h1>
+                <p class="sub-title mb-4">Fill in your details to create a new account</p>
+                <CInputGroup class="mb-3">
+                  <CInputGroupText>
+                    <CIcon :icon="icons.cilUser" />
+                  </CInputGroupText>
+                  <CFormInput
+                    v-model="name"
+                    placeholder="Full Name"
+                    type="text"
+                    required
+                  />
+                </CInputGroup>
+              </CForm>
             </CCardBody>
           </CCard>
         </CCol>
