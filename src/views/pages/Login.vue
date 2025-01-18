@@ -8,6 +8,30 @@
               <CForm @submit.prevent="handleLogin">
                 <h1 class="main-title mb-3">Welcome Back!</h1>
                 <p class="sub-title mb-4">Enter your credentials to log in to your account</p>
+                <CInputGroup class="mb-3">
+                  <CInputGroupText>
+                    <CIcon icon="cil-user" />
+                  </CInputGroupText>
+                  <CFormInput
+                    v-model="email"
+                    placeholder="Email Address"
+                    type="email"
+                    autocomplete="email"
+                    required
+                  />
+                </CInputGroup>
+                <CInputGroup class="mb-3">
+                  <CInputGroupText>
+                    <CIcon icon="cil-lock-locked" />
+                  </CInputGroupText>
+                  <CFormInput
+                    v-model="password"
+                    type="password"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                    required
+                  />
+                </CInputGroup>
 
               </CForm>
             </CCardBody>
