@@ -98,4 +98,38 @@
 </script>
 
 <style scoped>
+.wrapper {
+  background-color: #f8f9fa;
+}
+
+.signup-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.main-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #16354d;
+}
+
+.sub-title {
+  font-size: 16px;
+  color: #71727a;
+}
+
+.login-link {
+  color: #289dd2;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.signup-image {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
 </style>
