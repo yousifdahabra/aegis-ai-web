@@ -41,6 +41,34 @@
                     required
                   />
                 </CInputGroup>
+                <CInputGroup class="mb-3">
+                  <CInputGroupText>
+                    <CIcon :icon="icons.cilExternalLink" />
+                  </CInputGroupText>
+                  <CFormInput
+                    v-model="links"
+                    placeholder="Links (Optional)"
+                    type="text"
+                  />
+                </CInputGroup>
+                <CInputGroup class="mb-3">
+                  <CInputGroupText>
+                    <CIcon :icon="icons.cilInfo" />
+                  </CInputGroupText>
+                  <CFormTextarea
+                    v-model="extra_informations"
+                    placeholder="Extra Information"
+                    rows="3"
+                  />
+                </CInputGroup>
+                <div class="mb-3">
+                  <label class="form-label">Upload Documents</label>
+                  <CFormInput
+                    type="file"
+                    multiple
+                    @change="handleFileUpload"
+                  />
+                </div>
               </CForm>
             </CCardBody>
           </CCard>
