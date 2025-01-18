@@ -18,6 +18,7 @@ const routes = [
   {
     path: '/dashboard',
     component: DefaultLayout,
+    meta: { requiresAuth: true },
     children: [
       {
         path: '/dashboard',
@@ -26,9 +27,11 @@ const routes = [
       },
     ],
   },
+  // Users
   {
     path: '/base/users',
     component: DefaultLayout,
+    meta: { requiresAuth: true },
     children: [
       {
         path: 'list',
@@ -37,9 +40,11 @@ const routes = [
       },
     ],
   },
+  // Tests
   {
     path: '/base/tests/:id',
     component: DefaultLayout,
+    meta: { requiresAuth: true },
     children: [
       {
         path: 'add/:id',
@@ -47,7 +52,7 @@ const routes = [
         component: () => import('@/views/base/tests/AddTest.vue'),
         props: true,
       },
-        {
+      {
         path: '',
         name: 'TestsList',
         component: () => import('@/views/base/tests/TestsList.vue'),
@@ -59,12 +64,13 @@ const routes = [
         component: () => import('@/views/base/tests/TestDetails.vue'),
         props: true,
       },
-
     ],
   },
+  // Requests
   {
     path: '/base/request',
     component: DefaultLayout,
+    meta: { requiresAuth: true },
     children: [
       {
         path: 'view',
@@ -73,9 +79,11 @@ const routes = [
       },
     ],
   },
+  // Expert Requests
   {
     path: '/base/expert',
     component: DefaultLayout,
+    meta: { requiresAuth: true, expertOnly: true },
     children: [
       {
         path: 'list',
@@ -84,9 +92,11 @@ const routes = [
       },
     ],
   },
+  // Profile
   {
     path: '/base/profile',
     component: DefaultLayout,
+    meta: { requiresAuth: true },
     children: [
       {
         path: 'view',
@@ -95,18 +105,36 @@ const routes = [
       },
     ],
   },
-
-
-
 ];
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior() {
-    // Always scroll to top
     return { top: 0 };
   },
+});
+
+// Navigation guard for login and role-based access
+router.beforeEach((to, from, next) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const role = localStorage.getItem('role');
+  console.log(role)
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!user) {
+      return next({ name: 'Login' });
+    }
+
+    if (to.matched.some(record => record.meta.expertOnly) && role !== 'expert') {
+      return next({ name: 'Dashboard' });
+    }
+  }
+
+  if (to.name === 'Login' && user) {
+    return next({ name: role === 'expert' ? 'ExpertRequestList' : 'Dashboard' });
+  }
+
+  next();
 });
 
 export default router;
