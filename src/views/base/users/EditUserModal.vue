@@ -2,8 +2,12 @@
   <CModal :visible="visible" @close="close">
     <CModalHeader>Edit User</CModalHeader>
     <CModalBody>
-      <div v-if="formErrorMessage" class="text-danger mb-3">{{ formErrorMessage }}</div>
-      <div v-if="formSuccessMessage" class="text-success mb-3">{{ formSuccessMessage }}</div>
+      <div v-if="formErrorMessage">
+        <CAlert color="danger" class="mb-3">{{ formErrorMessage }}</CAlert>
+      </div>
+      <div v-if="formSuccessMessage">
+        <CAlert color="success" class="mb-3">{{ formSuccessMessage }}</CAlert>
+      </div>
       <CForm @submit.prevent="saveChanges">
         <CFormInput
           v-model="localUser.name"
