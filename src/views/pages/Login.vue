@@ -91,3 +91,39 @@ export default {
 };
 </script>
 
+<style scoped>
+.wrapper {
+  background-color: #f8f9fa;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.main-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #16354d;
+}
+
+.sub-title {
+  font-size: 16px;
+  color: #71727a;
+}
+
+.sign-up-link {
+  color: #289dd2;
+  text-decoration: none;
+}
+
+.sign-up-link:hover {
+  text-decoration: underline;
+}
+
+.login-image {
+  height: 95vh;
+  width: 100%;
+  object-fit: cover;
+}
+</style>
