@@ -3,15 +3,15 @@
   <header class="navbar">
     <div class="container navbar-container">
       <div class="logo-nav-container">
-        <img src="@/assets/images/home/logo.png"  alt="Logo" class="logo" />
+        <img src="@/assets/images/home/logo.png" alt="Logo" class="logo" />
         <nav class="nav-links" :class="{ 'show-menu': isMenuOpen }">
-          <a href="#" class="nav-item">Home</a>
-          <a href="#" class="nav-item">About Us</a>
-          <a href="#" class="nav-item">Contact Us</a>
-          <!-- <a href="#" class="nav-item btn-expert-mobile">Be an Expert</a> -->
+          <router-link to="/" class="nav-item">Home</router-link>
+          <router-link to="/about" class="nav-item">About Us</router-link>
+          <router-link to="/contact" class="nav-item">Contact Us</router-link>
+          <router-link to="/register" class="nav-item btn-expert-mobile">Be an Expert</router-link>
         </nav>
       </div>
-      <!-- <a href="#" class="btn-expert">Be an Expert</a> -->
+      <router-link to="/register" class="btn-expert">Be an Expert</router-link>
 
       <button class="burger-menu" @click="toggleMenu">
         <span class="line"></span>
@@ -20,8 +20,6 @@
       </button>
     </div>
   </header>
-
-
 </template>
 
 <script>
@@ -76,9 +74,9 @@ export default {
   padding: 15px 20px;
   border-radius: 5px;
   z-index: 10;
-
   text-align: center;
 }
+
 .nav-links.show-menu .nav-item {
   display: block;
   margin-bottom: 15px;
@@ -109,12 +107,12 @@ export default {
 .burger-menu .line {
   width: 25px;
   height: 3px;
-  background-color: var(--main-title-color);;
+  background-color: var(--main-title-color);
   border-radius: 2px;
 }
 
 .btn-expert {
-  background-color:var(--button-background-color);
+  background-color: var(--button-background-color);
   color: var(--button-text-color);
   padding: 10px 20px;
   border-radius: 5px;
@@ -126,7 +124,7 @@ export default {
 
 .btn-expert-mobile {
   display: none;
-  background-color:var(--button-background-color);
+  background-color: var(--button-background-color);
   color: var(--button-text-color);
   padding: 10px 20px;
   border-radius: 5px;
@@ -171,6 +169,4 @@ export default {
     display: inline-block;
   }
 }
-
-
 </style>
