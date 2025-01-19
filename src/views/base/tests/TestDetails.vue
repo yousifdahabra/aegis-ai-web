@@ -42,7 +42,7 @@
         <CCardHeader>Test Result</CCardHeader>
         <CCardBody>
           <p><strong>Score:</strong> {{ testDetails.security }}</p>
-          <p><strong>Feedback:</strong> Coming soon...</p>
+          <p><strong>Feedback:</strong> {{ testDetails?.analysis }}</p>
         </CCardBody>
       </CCard>
     </CContainer>

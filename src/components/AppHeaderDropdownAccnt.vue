@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
-import avatar from '@/assets/images/avatars/8.jpg'
+import avatar from '@/assets/images/avatars/10.jpg'
 
 const router = useRouter()
 
