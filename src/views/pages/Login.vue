@@ -36,7 +36,8 @@
                   Login
                 </CButton>
                 <p class="text-center">
-                  Don't have an account? <a href="#" class="sign-up-link">Sign Up</a>
+                  Don't have an account?
+                  <router-link to="/register" class="sign-up-link">Sign Up</router-link>
                 </p>
                 <div v-if="errorMessage" class="text-danger mt-3 text-center">
                   {{ errorMessage }}
