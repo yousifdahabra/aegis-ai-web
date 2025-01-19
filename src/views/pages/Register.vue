@@ -90,7 +90,8 @@
                   Sign Up
                 </CButton>
                 <p class="text-center">
-                  Already have an account? <a href="#" class="login-link">Login</a>
+                  Already have an account?
+                  <router-link to="/Login" class="login-link">Login</router-link>
                 </p>
               </CForm>
             </CCardBody>
